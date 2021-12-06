@@ -42,6 +42,7 @@
     gimp
 
     signal-desktop
+    teams
     libreoffice
 
     kicad
