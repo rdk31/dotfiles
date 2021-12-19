@@ -23,6 +23,17 @@
     longitude = 21.00;
   };
 
+  systemd.user.targets.tray = {
+    Unit = {
+      Description = "Home Manager System Tray";
+      Requires = [ "graphical-session-pre.target" ];
+    };
+  };
+  services.udiskie = {
+    enable = true;
+    notify = false;
+  };
+
   home.packages = with pkgs; [
     dmenu
     wofi

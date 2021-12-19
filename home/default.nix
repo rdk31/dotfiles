@@ -50,5 +50,8 @@
     docker-compose
 
     networkmanagerapplet
+
+    lutris
+    gnome3.adwaita-icon-theme
   ];
 }

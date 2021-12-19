@@ -52,7 +52,12 @@
     pulse.enable = true;
   };
   xdg.portal.wlr.enable = true;
-  hardware.opengl.enable = true;
+  #hardware.opengl.enable = true;
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
@@ -66,7 +71,7 @@
 
   users.users.rdk = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "adm" "networkmanager" "libvirtd" "vboxusers" ];
+    extraGroups = [ "wheel" "video" "adm" "networkmanager" "docker" "libvirtd" "vboxusers" ];
   };
   services.getty.autologinUser = "rdk";
   environment.loginShellInit = ''
@@ -79,6 +84,7 @@
     git
     htop
     curl
+    unzip
     wget
     wireguard
     pptp
