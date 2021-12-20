@@ -47,7 +47,8 @@
     kicad
 
     postman
-    docker-compose
+    docker-compose_2
+    mongodb-compass
 
     networkmanagerapplet
 
