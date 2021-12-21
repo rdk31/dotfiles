@@ -17,7 +17,6 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "omnisharp.useGlobalMono": "always",
   "editor.suggestSelection": "first",
   "editor.lineNumbers": "relative",
   "files.enableTrash": false,
@@ -28,11 +27,10 @@
   },
   "workbench.editor.enablePreviewFromQuickOpen": true,
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "One Dark Pro",
+  "workbench.colorTheme": "One Dark",
   "window.restoreWindows": "none",
   "window.menuBarVisibility": "toggle",
-  "telemetry.enableCrashReporter": false,
-  "telemetry.enableTelemetry": false,
+  "telemetry.telemetryLevel": "off",
   "zenMode.centerLayout": false,
   "zenMode.hideStatusBar": false,
   "zenMode.hideTabs": false,
@@ -146,22 +144,6 @@
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
-    {
-      "before": [
-        ">"
-      ],
-      "commands": [
-        "editor.action.indentLines"
-      ]
-    },
-    {
-      "before": [
-        "<"
-      ],
-      "commands": [
-        "editor.action.outdentLines"
-      ]
-    },
     {
       "before": [
         "<leader>",

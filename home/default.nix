@@ -6,7 +6,7 @@
     ./sway
     ./waybar
     ./tmux
-    #./code
+    ./code
     ./ssh.nix
     ./git.nix
     ./zsh.nix
@@ -54,5 +54,6 @@
 
     lutris
     gnome3.adwaita-icon-theme
+    multimc
   ];
 }
