@@ -29,9 +29,11 @@
       Requires = [ "graphical-session-pre.target" ];
     };
   };
-  services.udiskie = {
+  services.udiskie.enable = true;
+
+  programs.mako = {
     enable = true;
-    notify = false;
+    defaultTimeout = 2000;
   };
 
   home.packages = with pkgs; [
@@ -41,7 +43,6 @@
     swaylock
     swayidle
     xwayland
-    mako
     wl-clipboard
     grim
     slurp

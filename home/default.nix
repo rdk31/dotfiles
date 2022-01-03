@@ -44,6 +44,9 @@
     teams
     libreoffice
 
+    jdk
+    jetbrains.idea-community
+
     kicad
 
     postman
@@ -55,5 +58,7 @@
     lutris
     gnome3.adwaita-icon-theme
     multimc
+
+    #ungoogled-chromium
   ];
 }

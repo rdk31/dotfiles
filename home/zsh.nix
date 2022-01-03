@@ -5,7 +5,7 @@
     autocd = true;
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "sudo" "docker" "systemd" "kubectl" ];
+      plugins = [ "git" "sudo" "docker" "systemd" "kubectl" "rsync" ];
       theme = "robbyrussell";
     };
     enableSyntaxHighlighting = true;

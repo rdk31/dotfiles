@@ -17,6 +17,10 @@
     };
   };
 
+  boot.extraModprobeConfig = ''
+    options hid_apple fnmode=0
+  '';
+
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
 
   time.timeZone = "Europe/Warsaw";
@@ -26,8 +30,12 @@
     networkmanager.enable = true;
 
     useDHCP = false;
-    interfaces.enp0s13f0u1u4.useDHCP = true;
-    interfaces.wlp0s20f3.useDHCP = true;
+    #interfaces.enp0s13f0u1u4.useDHCP = true;
+    #interfaces.wlp0s20f3.useDHCP = true;
+    extraHosts = ''
+      51.15.90.204 test.rdk31.com
+      51.15.90.204 traefik.rdk31.com
+    '';
   };
 
   fonts = {
