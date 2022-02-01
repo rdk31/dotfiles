@@ -22,7 +22,6 @@ in
       serayuzgur.crates
       vscodevim.vim
       eamodio.gitlens
-      coenraads.bracket-pair-colorizer-2
       esbenp.prettier-vscode
       #formulahendry.auto-rename-tag
       #formulahendry.auto-close-tag

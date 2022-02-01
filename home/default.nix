@@ -10,7 +10,8 @@
     ./ssh.nix
     ./git.nix
     ./zsh.nix
-    ./foot.nix
+    #./foot.nix
+    ./alacritty.nix
     ./lf.nix
     ./firefox.nix
     ./obs-studio.nix
@@ -55,10 +56,11 @@
 
     networkmanagerapplet
 
-    lutris
-    gnome3.adwaita-icon-theme
-    multimc
+    polymc
 
-    #ungoogled-chromium
+    gnome.gnome-tweaks
+    gnomeExtensions.appindicator
+    gnomeExtensions.sound-output-device-chooser
+    gnomeExtensions.dash-to-dock
   ];
 }

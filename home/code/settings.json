@@ -19,6 +19,8 @@
   },
   "editor.suggestSelection": "first",
   "editor.lineNumbers": "relative",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs":"active",
   "files.enableTrash": false,
   "files.watcherExclude": {
     "**/.git/objects/**": true,

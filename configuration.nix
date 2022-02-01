@@ -11,7 +11,7 @@
   boot.initrd.luks.devices = {
     root = {
       name = "root";
-      device = "/dev/disk/by-uuid/63ea76c1-75b0-462a-81b3-070c4e662fa4";
+      device = "/dev/disk/by-uuid/be4b678c-4a53-493b-8af6-55645e4ca3d1";
       preLVM = true;
       allowDiscards = true;
     };
@@ -24,6 +24,7 @@
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
 
   time.timeZone = "Europe/Warsaw";
+  time.hardwareClockInLocalTime = true;
 
   networking = {
     hostName = "xps";
@@ -33,8 +34,6 @@
     #interfaces.enp0s13f0u1u4.useDHCP = true;
     #interfaces.wlp0s20f3.useDHCP = true;
     extraHosts = ''
-      51.15.90.204 test.rdk31.com
-      51.15.90.204 traefik.rdk31.com
     '';
   };
 
@@ -55,17 +54,9 @@
 
   #sound.enable = true;
   #hardware.pulseaudio.enable = true;
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-  };
+  services.pipewire.enable = true;
   xdg.portal.wlr.enable = true;
-  #hardware.opengl.enable = true;
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
+  hardware.opengl.enable = true;
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
@@ -81,10 +72,6 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "video" "adm" "networkmanager" "docker" "libvirtd" "vboxusers" ];
   };
-  services.getty.autologinUser = "rdk";
-  environment.loginShellInit = ''
-    [[ "$(tty)" == /dev/tty1 ]] && sway
-  '';
   users.defaultUserShell = pkgs.zsh;
 
   environment.systemPackages = with pkgs; [
@@ -109,8 +96,17 @@
       dates = "daily";
       options = "--delete-older-than 7d";
     };
-    autoOptimiseStore = true;
+    settings.auto-optimise-store = true;
   };
+
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+
+  #services.getty.autologinUser = "rdk";
+  #environment.loginShellInit = ''
+  #  [[ "$(tty)" == /dev/tty1 ]] && sway
+  #'';
 
   #systemd.user.services.swayidle = {
   #  description = "Idle Manager for Wayland";
@@ -133,5 +129,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "21.05"; # Did you read the comment?
+  system.stateVersion = "21.11"; # Did you read the comment?
 }

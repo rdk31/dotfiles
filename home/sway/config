@@ -12,7 +12,9 @@ set $laptop_screen eDP-1
 
 #output * bg ~/.dotfiles/secrets/background.jpg fill
 output DP-1 scale 1 position 0,0
-output eDP-1 scale 1.25 position 2560,480
+output DP-3 scale 1 position 0,0
+#output eDP-1 scale 1.25 position 2560,480
+output eDP-1 scale 1.25 position 1920,0
 
 workspace 1 output DP-1
 workspace 2 output DP-1

@@ -4,8 +4,9 @@
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   inputs.nixos-hardware.url = "github:nixos/nixos-hardware/master";
   inputs.home-manager.url = "github:nix-community/home-manager";
+  inputs.polymc.url = "github:PolyMC/PolyMC";
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }: {
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, polymc, ... }: {
     nixosConfigurations."xps" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -18,7 +19,9 @@
           home-manager.users.rdk = import ./home;
         }
         {
-          #nixpkgs.overlays = [];
+          nixpkgs.overlays = [
+            polymc.overlay
+          ];
           nixpkgs.config.allowUnfree = true;
           nix.registry.nixpkgs.flake = nixpkgs;
         }
