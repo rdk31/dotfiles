@@ -52,9 +52,10 @@
 
   services.printing.enable = true;
 
-  #sound.enable = true;
-  #hardware.pulseaudio.enable = true;
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
   services.pipewire.enable = true;
+  services.pipewire.pulse.enable = true;
   xdg.portal.wlr.enable = true;
   hardware.opengl.enable = true;
 

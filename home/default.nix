@@ -41,6 +41,7 @@
     pulsemixer
     gimp
 
+    discord
     signal-desktop
     teams
     libreoffice
@@ -49,6 +50,8 @@
     jetbrains.idea-community
 
     kicad
+
+    remmina
 
     postman
     docker-compose_2
