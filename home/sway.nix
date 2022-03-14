@@ -93,10 +93,6 @@ in {
           workspace = "9";
           output = "eDP-1";
         }
-        {
-          workspace = "0";
-          output = "eDP-1";
-        }
       ];
       keybindings = lib.mkOptionDefault {
         "${mod}+Tab" = "workspace back_and_forth"; 
