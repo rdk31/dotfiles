@@ -13,6 +13,10 @@
     shellAliases = {
       ls = "exa";
       grep = "grep --color=auto";
+      cal = "cal -m";
     };
+    initExtra = ''
+      cal -m
+    '';
   };
 }

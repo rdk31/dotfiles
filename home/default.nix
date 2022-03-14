@@ -8,6 +8,7 @@
     ./waybar
     ./tmux
     ./code
+    ./zathura.nix
     ./ssh.nix
     ./git.nix
     ./zsh.nix

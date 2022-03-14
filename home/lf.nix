@@ -8,16 +8,16 @@ let
     y=$5
 
     case "$(file -Lb --mime-type "$file")" in
-      image/*) ${pkgs.kitty}/bin/kitty +icat --silent --transfer-mode file --place "''${w}x''${h}@''${x}x''${y}" "$file"; exit 1;;
+      image/*) kitty +icat --silent --transfer-mode file --place "''${w}x''${h}@''${x}x''${y}" "$file"; exit 1;;
       video/*) mediainfo "$file";;
       application/zip) als "$file";;
       text/*|*/xml) bat --terminal-width "$(($w-2))" -f "$file";;
       application/json) cat | jq -C;;
-      *) ${pkgs.pistol}/bin/pistol "$file";;
+      *) pistol "$file";;
     esac
   '';
   cleaner = pkgs.writeShellScript "cleaner" ''
-    ${pkgs.kitty}/bin/kitty +icat --clear --silent --transfer-mode file
+    kitty +icat --clear --silent --transfer-mode file
   '';
 in {
   programs.lf = {
@@ -45,6 +45,15 @@ in {
           [ $ans = "y" ] && aunpack "$fx"
         }}
       '';
+      open = ''
+        ''${{
+          case $(file --mime-type "$(readlink -f $f)" -b) in
+            text/*) $EDITOR $fx;;
+            application/pdf) zathura $fx >/dev/null 2>&1 ;;
+            *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;
+          esac
+        }}
+      '';
     };
     keybindings = {
       "m" = "";
@@ -52,6 +61,7 @@ in {
       "mf" = "push :mkfile<space>";
       "D" = "delete";
       "E" = "extract";
+      "<enter>" = "$$SHELL";
 
       "gd" = "cd ~/.dotfiles";
       "gh" = "cd ~";

@@ -46,4 +46,8 @@
       clang_9
     ];
   };
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
 }
