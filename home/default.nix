@@ -3,7 +3,7 @@
   imports = [
     ./nvim
     ./newsboat
-    ./sway.nix
+    ./sway
     ./kanshi.nix
     ./waybar
     ./tmux

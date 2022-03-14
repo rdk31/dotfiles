@@ -1,13 +1,6 @@
 { config, pkgs, lib, ... }:
 let
   mod = "Mod4";
-  lid = pkgs.writeShellScript "lid" ''
-    if grep -q open /proc/acpi/button/lid/LID0/state; then
-        swaymsg output eDP-1 enable
-    else
-        swaymsg output eDP-1 disable
-    fi
-  '';
 in {
   wayland.windowManager.sway = {
     enable = true;
@@ -25,7 +18,7 @@ in {
     extraConfig = ''
       bindswitch --reload --locked lid:on output eDP-1 disable
       bindswitch --reload --locked lid:off output eDP-1 enable
-      exec_always ${lid}
+      exec_always ${./lid.sh}
     '';
     config = {
       modifier = mod;
@@ -45,9 +38,19 @@ in {
           natural_scroll = "enabled";
           middle_emulation = "enabled";
         };
-        "*" = {
+        "1:1:AT_Translated_Set_2_keyboard" = {
           xkb_layout = "pl";
         };
+        "1452:591:Keychron_Keychron_K1" = {
+          xkb_layout = "pl";
+        };
+        "1118:1896:Microsoft_Microsoft___SiderWinderTM_X4_Keyboard" = {
+          xkb_layout = "pl";
+        };
+        # crashes firefox on sway reload
+        #"*" = {
+        #  xkb_layout = "pl";
+        #};
       };
       output = {
         "eDP-1" = {
@@ -102,6 +105,9 @@ in {
         "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
         "XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
         "XF86MonBrightnessUp" = "exec brightnessctl set 5%+";
+
+        "${mod}+z" = "exec ${./power.sh}";
+        "${mod}+m" = "exec ${./switch-audio-output.sh}";
       };
     };
   };
