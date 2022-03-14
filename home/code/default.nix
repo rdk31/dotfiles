@@ -1,12 +1,4 @@
 { config, pkgs, ... }:
-let
-  jupyter-renderers = pkgs.vscode-utils.extensionFromVscodeMarketplace {
-    name = "jupyter-renderers";
-    publisher = "ms-toolsai";
-    version = "1.0.4";
-    sha256 = "aKWu0Gp0f28DCv2akF/G8UDaGfTN410CcH8CAmW7mgU=";
-  };
-in
 {
   programs.vscode = {
     enable = true;
@@ -35,7 +27,8 @@ in
       # platformio.platformio-ide
       tamasfe.even-better-toml
       ms-toolsai.jupyter
-      jupyter-renderers
+      ms-toolsai.jupyter-renderers
+      ms-vscode.cpptools
     ]);
   };
 

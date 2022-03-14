@@ -17,8 +17,10 @@
     };
   };
 
+  boot.supportedFilesystems = [ "ntfs" ];
+
   boot.extraModprobeConfig = ''
-    options hid_apple fnmode=0
+    options hid_apple fnmode=2
   '';
 
   fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
@@ -31,8 +33,6 @@
     networkmanager.enable = true;
 
     useDHCP = false;
-    #interfaces.enp0s13f0u1u4.useDHCP = true;
-    #interfaces.wlp0s20f3.useDHCP = true;
     extraHosts = ''
     '';
   };
@@ -52,11 +52,14 @@
 
   services.printing.enable = true;
 
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  services.pipewire.enable = true;
-  services.pipewire.pulse.enable = true;
-  xdg.portal.wlr.enable = true;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
   hardware.opengl.enable = true;
 
   hardware.bluetooth.enable = true;
@@ -100,14 +103,10 @@
     settings.auto-optimise-store = true;
   };
 
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-  #services.getty.autologinUser = "rdk";
-  #environment.loginShellInit = ''
-  #  [[ "$(tty)" == /dev/tty1 ]] && sway
-  #'';
+  services.getty.autologinUser = "rdk";
+  environment.loginShellInit = ''
+    [[ "$(tty)" == /dev/tty1 ]] && sway
+  '';
 
   #systemd.user.services.swayidle = {
   #  description = "Idle Manager for Wayland";

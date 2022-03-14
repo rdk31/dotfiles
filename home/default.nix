@@ -3,7 +3,8 @@
   imports = [
     ./nvim
     ./newsboat
-    ./sway
+    ./sway.nix
+    ./kanshi.nix
     ./waybar
     ./tmux
     ./code
@@ -11,7 +12,8 @@
     ./git.nix
     ./zsh.nix
     #./foot.nix
-    ./alacritty.nix
+    #./alacritty.nix
+    ./kitty.nix
     ./lf.nix
     ./firefox.nix
     ./obs-studio.nix
@@ -26,6 +28,8 @@
     ripgrep
     bc
     jq
+    atool
+    file
     bind
 
     rsync
@@ -49,7 +53,7 @@
     jdk
     jetbrains.idea-community
 
-    kicad
+    #kicad
 
     remmina
 
@@ -61,9 +65,11 @@
 
     polymc
 
-    gnome.gnome-tweaks
-    gnomeExtensions.appindicator
-    gnomeExtensions.sound-output-device-chooser
-    gnomeExtensions.dash-to-dock
+    gnome3.adwaita-icon-theme
+
+    #gnome.gnome-tweaks
+    #gnomeExtensions.appindicator
+    #gnomeExtensions.sound-output-device-chooser
+    #gnomeExtensions.dash-to-dock
   ];
 }

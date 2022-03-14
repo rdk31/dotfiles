@@ -1,0 +1,137 @@
+{ config, pkgs, lib, ... }:
+let
+  mod = "Mod4";
+  lid = pkgs.writeShellScript "lid" ''
+    if grep -q open /proc/acpi/button/lid/LID0/state; then
+        swaymsg output eDP-1 enable
+    else
+        swaymsg output eDP-1 disable
+    fi
+  '';
+in {
+  wayland.windowManager.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+    systemdIntegration = true;
+    extraSessionCommands = ''
+      export SDL_VIDEODRIVER=wayland
+      export QT_QPA_PLATFORM=wayland
+      export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+      export _JAVA_AWT_WM_NONREPARENTING=1
+      export MOZ_ENABLE_WAYLAND=1
+      export WLR_RENDERER_ALLOW_SOFTWARE=1
+      export XDG_CURRENT_DESKTOP=sway
+    '';
+    extraConfig = ''
+      bindswitch --reload --locked lid:on output eDP-1 disable
+      bindswitch --reload --locked lid:off output eDP-1 enable
+      exec_always ${lid}
+    '';
+    config = {
+      modifier = mod;
+      terminal = "kitty";
+      menu = "wofi --show drun | xargs swaymsg exec --";
+
+      gaps = {
+        inner = 16;
+        outer = 5;
+        smartBorders = "on";
+        smartGaps = true;
+      };
+      input = {
+        "1739:52710:DLL0945:00_06CB:CDE6_Touchpad" = {
+          dwt = "enabled";
+          tap = "enabled";
+          natural_scroll = "enabled";
+          middle_emulation = "enabled";
+        };
+        "*" = {
+          xkb_layout = "pl";
+        };
+      };
+      output = {
+        "eDP-1" = {
+          scale = "1.25";
+          position = "0,0";
+        };
+      };
+      bars = []; 
+      workspaceOutputAssign = [
+        {
+          workspace = "1";
+          output = "DP-3 DP-1 eDP-1";
+        }
+        {
+          workspace = "2";
+          output = "DP-3 DP-1 eDP-1";
+        }
+        {
+          workspace = "3";
+          output = "DP-3 DP-1 eDP-1";
+        }
+        {
+          workspace = "4";
+          output = "DP-3 DP-1 eDP-1";
+        }
+        {
+          workspace = "5";
+          output = "DP-3 DP-1 eDP-1";
+        }
+        {
+          workspace = "6";
+          output = "eDP-1";
+        }
+        {
+          workspace = "7";
+          output = "eDP-1";
+        }
+        {
+          workspace = "8";
+          output = "eDP-1";
+        }
+        {
+          workspace = "9";
+          output = "eDP-1";
+        }
+        {
+          workspace = "0";
+          output = "eDP-1";
+        }
+      ];
+      keybindings = lib.mkOptionDefault {
+        "${mod}+Tab" = "workspace back_and_forth"; 
+
+        "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +5%";
+        "XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -5%";
+        "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
+        "XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
+        "XF86MonBrightnessUp" = "exec brightnessctl set 5%+";
+      };
+    };
+  };
+
+  services.gammastep = {
+    enable = true;
+    latitude = 52.13;
+    longitude = 21.00;
+  };
+
+  systemd.user.targets.tray = {
+    Unit = {
+      Description = "Home Manager System Tray";
+      Requires = [ "graphical-session-pre.target" ];
+    };
+  };
+  services.udiskie.enable = true;
+
+  programs.mako = {
+    enable = true;
+    defaultTimeout = 2000;
+  };
+
+  home.packages = with pkgs; [
+    wofi
+    brightnessctl
+    pulseaudio
+  ];
+}
