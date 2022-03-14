@@ -7,7 +7,7 @@
     ./kanshi.nix
     ./waybar
     ./tmux
-    ./code
+    #./code
     ./zathura.nix
     ./ssh.nix
     ./git.nix

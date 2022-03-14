@@ -12,7 +12,7 @@ let
       video/*) mediainfo "$file";;
       application/zip) als "$file";;
       text/*|*/xml) bat --terminal-width "$(($w-2))" -f "$file";;
-      application/json) cat | jq -C;;
+      application/json) cat "$file" | jq -C;;
       *) pistol "$file";;
     esac
   '';

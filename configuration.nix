@@ -85,7 +85,7 @@
     curl
     unzip
     wget
-    wireguard
+    wireguard-tools
     pptp
   ];
   programs.zsh.enable = true;
