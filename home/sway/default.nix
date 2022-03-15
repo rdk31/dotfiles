@@ -155,8 +155,7 @@ in {
   };
 
   home.packages = with pkgs; [
-    grim
-    slurp
+    sway-contrib.grimshot
     wl-clipboard
     wf-recorder
     wofi
