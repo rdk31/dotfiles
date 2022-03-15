@@ -109,10 +109,28 @@ in {
         "XF86MonBrightnessUp" = "exec brightnessctl set 5%+";
 
         "${mod}+z" = "exec ${./power.sh}";
-        "${mod}+x" = "exec ${./lock.sh}";
+        "${mod}+x" = "exec ${./power.sh} lock";
         "${mod}+m" = "exec ${./switch-audio-output.sh}";
         "Print" = "exec ${./screenshot.sh}";
       };
+    };
+  };
+
+  systemd.user.services.swayidle = {
+    Unit = {
+      Description = "Idle Manager for Wayland";
+      Documentation = [ "man:swayidle(1)" ];
+      WantedBy = [ "sway-session.target" ];
+      PartOf = [ "graphical-session.target" ];
+      #path = [ pkgs.bash ];
+    };
+    Service = {
+      ExecStart = ''${pkgs.swayidle}/bin/swayidle -w -d \
+        timeout 270 '${./idle.sh} lock' \
+        timeout 300 '${./idle.sh} screen' resume '${pkgs.sway}/bin/swaymsg "output * dpms on"' \
+        timeout 600 '${./idle.sh} suspend' \
+        before-sleep '${./power.sh} lock'
+      '';
     };
   };
 
@@ -144,6 +162,6 @@ in {
     brightnessctl
     pulseaudio
     swayidle
-    swaylock-effects
+    swaylock
   ];
 }
