@@ -1,0 +1,18 @@
+set $mode_recording "record (m - monitor; r - region)"
+set $mode_recording_on "recording"
+
+mode $mode_recording_on {
+    bindsym Escape exec killall -s SIGINT wf-recorder, mode "default"
+}
+
+mode $mode_recording {
+    bindsym m exec killall -s SIGINT wf-recorder || wf-recorder -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') \
+            -f ~/Videos/$(date +'%Y-%m-%d-%T').mp4, mode $mode_recording_on
+    bindsym r exec killall -s SIGINT wf-recorder || wf-recorder -g "$(slurp -d)" \
+            -f ~/Videos/$(date +'%Y-%m-%d-%T').mp4, mode $mode_recording_on
+
+    # Return to default mode.
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+bindsym Mod4+Shift+r mode $mode_recording

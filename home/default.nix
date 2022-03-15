@@ -32,6 +32,7 @@
     atool
     file
     bind
+    killall
 
     rsync
     lftp

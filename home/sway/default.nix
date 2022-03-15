@@ -19,6 +19,7 @@ in {
       bindswitch --reload --locked lid:on output eDP-1 disable
       bindswitch --reload --locked lid:off output eDP-1 enable
       exec_always ${./lid.sh}
+      include ${./recording}
     '';
     config = {
       modifier = mod;
@@ -136,6 +137,7 @@ in {
     grim
     slurp
     wl-clipboard
+    wf-recorder
     wofi
     brightnessctl
     pulseaudio
