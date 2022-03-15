@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 if grep -q open /proc/acpi/button/lid/LID0/state; then
   swaymsg output eDP-1 enable
 else

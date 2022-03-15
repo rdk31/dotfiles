@@ -104,8 +104,8 @@ in {
         "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +5%";
         "XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -5%";
         "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
-        "XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
-        "XF86MonBrightnessUp" = "exec brightnessctl set 5%+";
+        "XF86MonBrightnessDown" = "exec ${./brightness.sh} down";
+        "XF86MonBrightnessUp" = "exec ${./brightness.sh} up";
 
         "${mod}+z" = "exec ${./power.sh}";
         "${mod}+x" = "exec ${./power.sh} lock";
