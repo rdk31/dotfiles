@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
-set -o pipefail
+set -euo pipefail
 
 SINKS=$(pactl list sinks | sed -En "s/^.*Description\: //p")
 NEW_SINK_DESCRIPTION=$(echo "$SINKS" | wofi --dmenu --insensitive --prompt "Choose output sink")

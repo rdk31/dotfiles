@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
-set -o pipefail
+set -euo pipefail
 
 ACTION=$(echo -e "poweroff\nreboot\nsuspend" | wofi --dmenu --insensitive --prompt "systemctl")
 systemctl $ACTION

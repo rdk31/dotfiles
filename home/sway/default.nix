@@ -108,6 +108,7 @@ in {
 
         "${mod}+z" = "exec ${./power.sh}";
         "${mod}+m" = "exec ${./switch-audio-output.sh}";
+        "Print" = "exec ${./screenshot.sh}";
       };
     };
   };
@@ -132,6 +133,9 @@ in {
   };
 
   home.packages = with pkgs; [
+    grim
+    slurp
+    wl-clipboard
     wofi
     brightnessctl
     pulseaudio
