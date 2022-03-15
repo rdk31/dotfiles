@@ -16,8 +16,7 @@ in {
       export XDG_CURRENT_DESKTOP=sway
     '';
     extraConfig = ''
-      bindswitch --reload --locked lid:on output eDP-1 disable
-      bindswitch --reload --locked lid:off output eDP-1 enable
+      bindswitch --reload --locked lid:toggle exec ${./lid.sh}
       exec_always ${./lid.sh}
 
       include ${./recording}
@@ -120,7 +119,6 @@ in {
     Unit = {
       Description = "Idle Manager for Wayland";
       Documentation = [ "man:swayidle(1)" ];
-      WantedBy = [ "sway-session.target" ];
       PartOf = [ "graphical-session.target" ];
       #path = [ pkgs.bash ];
     };
@@ -131,6 +129,9 @@ in {
         timeout 600 '${./idle.sh} suspend' \
         before-sleep '${./power.sh} lock'
       '';
+    };
+    Install = {
+      WantedBy = [ "sway-session.target" ];
     };
   };
 

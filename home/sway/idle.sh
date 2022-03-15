@@ -13,7 +13,7 @@ pulse() {
 case "$1" in
   "lock")
     if ! pulse; then
-      ./power.sh lock
+      [ ! $(pgrep -x "swaylock") ] && swaylock -f -c 000000
     fi
     ;;
   "screen") 

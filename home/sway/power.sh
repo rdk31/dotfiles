@@ -9,6 +9,7 @@ else
 fi
 
 case $ACTION in
-  "lock") swaylock -f -c 000000;;
+  "lock")
+    [ ! $(pgrep -x "swaylock") ] && swaylock -f -c 000000;;
   *) systemctl $ACTION;;
 esac

@@ -22,6 +22,7 @@
             position = "0,0";
           }
         ];
+        exec = [ "${pkgs.sway}/bin/swaymsg workspace 6, workspace 1" ];
       };
       docked2K = {
         outputs = [
@@ -34,6 +35,7 @@
             position = "0,0";
           }
         ];
+        exec = [ "${pkgs.sway}/bin/swaymsg workspace 6, workspace 1" ];
       };
       unknown = {
         outputs = [

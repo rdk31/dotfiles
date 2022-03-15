@@ -50,6 +50,8 @@
     keyMap = "us";
   };
 
+  services.logind.lidSwitchExternalPower = "ignore";
+
   services.printing.enable = true;
 
   security.rtkit.enable = true;
