@@ -19,6 +19,7 @@ in {
       bindswitch --reload --locked lid:on output eDP-1 disable
       bindswitch --reload --locked lid:off output eDP-1 enable
       exec_always ${./lid.sh}
+
       include ${./recording}
     '';
     config = {
@@ -108,6 +109,7 @@ in {
         "XF86MonBrightnessUp" = "exec brightnessctl set 5%+";
 
         "${mod}+z" = "exec ${./power.sh}";
+        "${mod}+x" = "exec ${./lock.sh}";
         "${mod}+m" = "exec ${./switch-audio-output.sh}";
         "Print" = "exec ${./screenshot.sh}";
       };
@@ -141,5 +143,7 @@ in {
     wofi
     brightnessctl
     pulseaudio
+    swayidle
+    swaylock-effects
   ];
 }
