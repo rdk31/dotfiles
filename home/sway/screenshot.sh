@@ -5,7 +5,7 @@ set -euo pipefail
 OPTIONS="mf - monitor file\nmc - monitor clipboard\nwf - window file\nwc - window clipboard\nrf - region file\nrc - region clipboard"
 
 if [ $# -eq 0 ]; then
-  OPTION=$(echo -e "$OPTIONS" | wofi --list 10 --ignorecase --prompt "Screenshot mode" --fn "Fira Code" --tb "#285577" --hb "#285577" --tf "#eeeeee" --hf "#eeeeee" --nf "#bbbbbb" | cut -d" " -f 1)
+  OPTION=$(echo -e "$OPTIONS" | bemenu --list 10 --ignorecase --prompt "Screenshot mode" --fn "Fira Code" --tb "#285577" --hb "#285577" --tf "#eeeeee" --hf "#eeeeee" --nf "#bbbbbb" | cut -d" " -f 1)
 else
   OPTION=$1
 fi
