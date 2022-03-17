@@ -4,8 +4,9 @@
     ./nvim
     ./newsboat
     ./sway
+    ./i3status-rs.nix
     ./kanshi.nix
-    ./waybar
+    #./waybar
     ./tmux
     #./code
     ./zathura.nix

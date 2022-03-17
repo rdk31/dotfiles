@@ -2,8 +2,7 @@
 
 set -euo pipefail
 
-BRIGHTNESS=$(brightnessctl -m i | cut -d "," -f 4)
-BRIGHTNESS=${BRIGHTNESS::-1}
+BRIGHTNESS=$(brightnessctl -m | cut -d "," -f 4 | tr -d "%" )
 
 case "$1" in
   "up") 
@@ -21,3 +20,5 @@ case "$1" in
     fi
     ;;
 esac
+
+brightnessctl -m | cut -d "," -f 4 | tr -d "%" > /tmp/wobpipe

@@ -20,12 +20,19 @@ in {
       exec_always ${./lid.sh}
 
       include ${./recording}
+
+      exec mkfifo /tmp/wobpipe
+      exec_always "tail -f /tmp/wobpipe | wob -a bottom -a right --padding 2 --margin 10 --border 2 --height 25 --width 200"
     '';
     config = {
       modifier = mod;
       terminal = "kitty";
       menu = "wofi --show drun | xargs swaymsg exec --";
 
+      fonts = {
+        names = [ "Fira Code" "Font Awesome 5 Free" ];
+        size = 12.0;
+      };
       gaps = {
         inner = 16;
         outer = 5;
@@ -38,6 +45,10 @@ in {
           tap = "enabled";
           natural_scroll = "enabled";
           middle_emulation = "enabled";
+        };
+        "5426:103:Razer_Razer_Naga_Trinity" = {
+          #accel_profile = "flat";
+          pointer_accel = "-0.5";
         };
         "1:1:AT_Translated_Set_2_keyboard" = {
           xkb_layout = "pl";
@@ -59,46 +70,31 @@ in {
           position = "0,0";
         };
       };
-      bars = []; 
-      workspaceOutputAssign = [
+      bars = [
         {
-          workspace = "1";
-          output = "DP-3 DP-1 eDP-1";
-        }
-        {
-          workspace = "2";
-          output = "DP-3 DP-1 eDP-1";
-        }
-        {
-          workspace = "3";
-          output = "DP-3 DP-1 eDP-1";
-        }
-        {
-          workspace = "4";
-          output = "DP-3 DP-1 eDP-1";
-        }
-        {
-          workspace = "5";
-          output = "DP-3 DP-1 eDP-1";
-        }
-        {
-          workspace = "6";
-          output = "eDP-1";
-        }
-        {
-          workspace = "7";
-          output = "eDP-1";
-        }
-        {
-          workspace = "8";
-          output = "eDP-1";
-        }
-        {
-          workspace = "9";
-          output = "eDP-1";
+          fonts = {
+            names = [ "Fira Code" "Font Awesome 5 Free" ];
+            size = 12.0;
+          };
+          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-default.toml";
+          position = "bottom";
         }
       ];
+      workspaceOutputAssign = [
+        { workspace = "1"; output = "DP-3 DP-1 eDP-1"; }
+        { workspace = "2"; output = "DP-3 DP-1 eDP-1"; }
+        { workspace = "3"; output = "DP-3 DP-1 eDP-1"; }
+        { workspace = "4"; output = "DP-3 DP-1 eDP-1"; }
+        { workspace = "5"; output = "DP-3 DP-1 eDP-1"; }
+        { workspace = "6"; output = "eDP-1"; }
+        { workspace = "7"; output = "eDP-1"; }
+        { workspace = "8"; output = "eDP-1"; }
+        { workspace = "9"; output = "eDP-1"; }
+        { workspace = "10"; output = "eDP-1"; }
+      ];
       keybindings = lib.mkOptionDefault {
+        "${mod}+0" = "workspace number 10";
+        "${mod}+Shift+0" = "move container to workspace number 10";
         "${mod}+Tab" = "workspace back_and_forth"; 
 
         "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +5%";
@@ -160,6 +156,7 @@ in {
     wf-recorder
     wofi
     brightnessctl
+    wob
     pulseaudio
     swayidle
     swaylock
