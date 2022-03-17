@@ -3,7 +3,7 @@
 set -euo pipefail
 
 if [ $# -eq 0 ]; then
-  ACTION=$(echo -e "poweroff\nreboot\nsuspend\nlock" | wofi --dmenu --insensitive --prompt "Choose action")
+  ACTION=$(echo -e "poweroff\nreboot\nsuspend\nlock" | bemenu --ignorecase --prompt "Choose action" --fn "Fira Code" --tb "#285577" --hb "#285577" --tf "#eeeeee" --hf "#eeeeee" --nf "#bbbbbb")
 else
   ACTION=$1
 fi

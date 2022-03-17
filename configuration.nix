@@ -113,7 +113,7 @@
   environment.loginShellInit = ''
     [[ "$(tty)" == /dev/tty1 ]] && sway
   '';
-
+  programs.wshowkeys.enable = true;
   security.pam.services.swaylock = {
     text = ''
       auth include login

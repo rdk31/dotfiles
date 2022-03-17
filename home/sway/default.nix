@@ -27,7 +27,7 @@ in {
     config = {
       modifier = mod;
       terminal = "kitty";
-      menu = "wofi --show drun | xargs swaymsg exec --";
+      menu = ''bemenu-run -p "" --fn "Fira Code" --tb "#285577" --hb "#285577" --tf "#eeeeee" --hf "#eeeeee" --nf "#bbbbbb" | xargs swaymsg exec --'';
 
       fonts = {
         names = [ "Fira Code" "Font Awesome 5 Free" ];
@@ -150,11 +150,12 @@ in {
     defaultTimeout = 2000;
   };
 
+
   home.packages = with pkgs; [
     sway-contrib.grimshot
     wl-clipboard
     wf-recorder
-    wofi
+    bemenu
     brightnessctl
     wob
     pulseaudio
