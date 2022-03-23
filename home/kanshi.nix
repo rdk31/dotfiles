@@ -34,7 +34,7 @@
             status = "enable";
           }
           {
-            criteria = "CHANGE ME";
+            criteria = "Dell Inc. DELL S2721DGF 8LBQ023";
             position = "0,0";
             status = "enable";
           }
@@ -45,7 +45,7 @@
         outputs = [
           {
             criteria = "eDP-1";
-            status = "disable";
+            status = "enable";
           }
           {
             criteria = "*";

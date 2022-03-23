@@ -6,7 +6,7 @@
       main = {
         term = "xterm-256color";
 
-        font = "monospace:size=14";
+        font = "monospace:size=10";
         dpi-aware = "yes";
       };
 
