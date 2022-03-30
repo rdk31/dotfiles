@@ -161,5 +161,6 @@ in {
     pulseaudio
     swayidle
     swaylock
+    udiskie
   ];
 }

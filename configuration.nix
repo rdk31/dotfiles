@@ -80,7 +80,7 @@
 
   users.users.rdk = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "adm" "networkmanager" "docker" "libvirtd" "vboxusers" ];
+    extraGroups = [ "wheel" "video" "adm" "networkmanager" "docker" "libvirtd" "vboxusers" "dialout" ];
   };
   users.defaultUserShell = pkgs.zsh;
 

@@ -40,6 +40,8 @@ map('n', '<leader>b', ':Telescope buffers<CR>', options)
 map('n', '<leader>n', ':NvimTreeToggle<CR>', options)
 
 map('n', '<leader>F', ':lua vim.lsp.buf.formatting()<CR>', options)
+map('n', '<leader>ca', ':lua vim.lsp.buf.code_action()<CR>', options)
+map('n', '<leader>r', ':lua vim.lsp.buf.rename()<CR>', options)
 
 require('nvim-autopairs').setup{}
 require('nvim-tree').setup{}

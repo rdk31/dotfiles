@@ -8,7 +8,7 @@
     ./kanshi.nix
     #./waybar
     ./tmux
-    #./code
+    ./code
     ./zathura.nix
     ./ssh.nix
     ./git.nix
@@ -16,6 +16,7 @@
     #./foot.nix
     #./alacritty.nix
     ./kitty.nix
+    ./mpv.nix
     ./lf.nix
     ./firefox.nix
     ./obs-studio.nix
@@ -51,6 +52,7 @@
     discord
     signal-desktop
     teams
+
     libreoffice
 
     jdk
@@ -70,9 +72,10 @@
 
     gnome3.adwaita-icon-theme
 
-    #gnome.gnome-tweaks
-    #gnomeExtensions.appindicator
-    #gnomeExtensions.sound-output-device-chooser
-    #gnomeExtensions.dash-to-dock
+    platformio
+
+    anki-bin
+
+    joplin-desktop
   ];
 }
