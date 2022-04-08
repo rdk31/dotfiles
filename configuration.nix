@@ -50,7 +50,12 @@
     keyMap = "us";
   };
 
-  services.logind.lidSwitchExternalPower = "ignore";
+  services.logind = {
+    lidSwitchExternalPower = "ignore";
+    extraConfig = ''
+      HandlePowerKey=ignore
+    '';
+  };
 
   services.printing.enable = true;
 
@@ -63,7 +68,6 @@
   };
 
   xdg.portal.enable = true;
-  xdg.portal.gtkUsePortal = true;
   xdg.portal.wlr.enable = true;
 
   hardware.opengl.enable = true;

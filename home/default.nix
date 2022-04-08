@@ -58,6 +58,8 @@
     jdk
     jetbrains.idea-community
 
+    unityhub
+
     #kicad
 
     remmina

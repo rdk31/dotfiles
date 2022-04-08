@@ -4,7 +4,6 @@
 
 - bluetooth auto connect
 - opening links xdg-open
-- firefox/joplin-desktop invisible dialogues
 - closed lid start
 - vivado/vitis ide
 - lf multiple files
