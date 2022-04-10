@@ -16,9 +16,6 @@
       grep = "grep --color=auto";
       cal = "cal -m";
     };
-    initExtra = ''
-      cal -m
-    '';
     plugins = [
       {
         name = "zsh-nix-shell";

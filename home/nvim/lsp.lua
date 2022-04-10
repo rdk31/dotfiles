@@ -3,6 +3,20 @@ require('lspconfig').tsserver.setup{}
 require('lspconfig').rust_analyzer.setup{}
 require('lspconfig').clangd.setup{}
 require('lspconfig').rnix.setup{}
+require("lspconfig").diagnosticls.setup {
+  filetypes = {"python"},
+  init_options = {
+    formatters = {
+      black = {
+        command = "black",
+        args = {"--quiet", "-"},
+      },
+    },
+    formatFiletypes = {
+      python = {"black"}
+    }
+  }
+}
 
 require('rust-tools').setup{}
 

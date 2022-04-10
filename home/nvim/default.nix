@@ -40,6 +40,7 @@
     extraPackages = with pkgs; [
       gcc
       pyright
+      nodePackages.diagnostic-languageserver
       nodePackages.typescript-language-server
       rust-analyzer rustfmt
       rnix-lsp
