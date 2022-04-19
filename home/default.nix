@@ -52,6 +52,7 @@
     discord
     signal-desktop
     teams
+    zoom-us
 
     libreoffice
 
@@ -79,5 +80,7 @@
     anki-bin
 
     joplin-desktop
+
+    kdenlive
   ];
 }
