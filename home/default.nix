@@ -82,5 +82,7 @@
     joplin-desktop
 
     kdenlive
+
+    qgroundcontrol
   ];
 }
