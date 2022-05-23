@@ -8,10 +8,8 @@
       ms-python.python
       ms-python.vscode-pylance
       jnoortheen.nix-ide
-      ms-azuretools.vscode-docker
       #vadimcn.vscode-lldb 
       matklad.rust-analyzer
-      serayuzgur.crates
       vscodevim.vim
       eamodio.gitlens
       esbenp.prettier-vscode
@@ -19,16 +17,15 @@
       #formulahendry.auto-close-tag
       mskelton.one-dark-theme
       pkief.material-icon-theme
-      formulahendry.code-runner
       #rubbersheep.gi
       usernamehw.errorlens
       # csharp
       # mshr-h.veriloghdl
       # platformio.platformio-ide
-      tamasfe.even-better-toml
       ms-toolsai.jupyter
       ms-toolsai.jupyter-renderers
-      #ms-vscode.cpptools
+      ms-vscode.cpptools
+      ms-vscode-remote.remote-ssh
     ]);
   };
 

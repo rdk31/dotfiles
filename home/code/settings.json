@@ -5,6 +5,8 @@
   "[rust]": {
     "editor.tabSize": 4
   },
+  "rust-analyzer.checkOnSave.command": "clippy",
+  "rust-analyzer.diagnostics.enableExperimental": false,
   "[python]": {
     "editor.tabSize": 4
   },
@@ -97,33 +99,6 @@
       ],
       "commands": [
         "workbench.action.showCommands"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "R"
-      ],
-      "commands": [
-        "code-runner.run"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "r"
-      ],
-      "commands": [
-        "workbench.action.tasks.runTask"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "b"
-      ],
-      "commands": [
-        "workbench.action.tasks.build"
       ]
     },
     {
