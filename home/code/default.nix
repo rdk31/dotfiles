@@ -28,7 +28,7 @@
       tamasfe.even-better-toml
       ms-toolsai.jupyter
       ms-toolsai.jupyter-renderers
-      ms-vscode.cpptools
+      #ms-vscode.cpptools
     ]);
   };
 

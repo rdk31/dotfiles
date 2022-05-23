@@ -2,7 +2,6 @@
 
 ## TODO
 
-- bluetooth auto connect
 - opening links xdg-open
 - closed lid start
 - vivado/vitis ide
