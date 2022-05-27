@@ -2,7 +2,6 @@
 
 ## TODO
 
-- opening links xdg-open
 - closed lid start
 - vivado/vitis ide
 - lf multiple files

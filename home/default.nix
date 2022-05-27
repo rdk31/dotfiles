@@ -40,6 +40,8 @@
     lftp
     insync-v3
 
+    xdg-utils
+
     btop
     neofetch
     onefetch
