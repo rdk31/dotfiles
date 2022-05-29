@@ -41,7 +41,7 @@
     "**/.git/subtree-cache/**": true,
     "**/node_modules/*/**": true
   },
-  "workbench.editor.enablePreviewFromQuickOpen": true,
+  "workbench.editor.enablePreview": false,
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorTheme": "One Dark",
   "window.restoreWindows": "none",
