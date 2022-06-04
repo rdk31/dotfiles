@@ -49,6 +49,7 @@
     vlc
     pavucontrol
     pulsemixer
+    networkmanagerapplet
     gimp
 
     discord

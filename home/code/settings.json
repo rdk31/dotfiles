@@ -6,7 +6,7 @@
     "editor.tabSize": 4
   },
   "rust-analyzer.checkOnSave.command": "clippy",
-  "rust-analyzer.diagnostics.enableExperimental": false,
+  "rust-analyzer.diagnostics.experimental.enable": false,
   "[python]": {
     "editor.tabSize": 4
   },
