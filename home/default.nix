@@ -69,7 +69,7 @@
     remmina
 
     postman
-    docker-compose_2
+    docker-compose
     mongodb-compass
 
     networkmanagerapplet
