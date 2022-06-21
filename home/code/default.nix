@@ -26,6 +26,7 @@
       ms-toolsai.jupyter-renderers
       ms-vscode.cpptools
       ms-vscode-remote.remote-ssh
+      james-yu.latex-workshop
     ]);
   };
 

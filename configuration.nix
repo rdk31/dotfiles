@@ -70,7 +70,16 @@
   xdg.portal.enable = true;
   xdg.portal.wlr.enable = true;
 
-  hardware.opengl.enable = true;
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      intel-compute-runtime
+      vaapiIntel
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
+  };
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
@@ -97,6 +106,11 @@
     wget
     wireguard-tools
     pptp
+
+    # opencl
+    clinfo
+    libva-utils
+    vulkan-tools
   ];
   programs.zsh.enable = true;
 
@@ -114,7 +128,7 @@
       dates = "daily";
       options = "--delete-older-than 7d";
     };
-    settings.auto-optimise-store = true;
+    autoOptimiseStore = true;
   };
 
   services.getty.autologinUser = "rdk";
