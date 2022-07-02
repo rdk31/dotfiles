@@ -20,6 +20,7 @@
     ./lf.nix
     ./firefox.nix
     ./obs-studio.nix
+    ./dev
   ];
 
   programs.direnv.enable = true;
@@ -35,6 +36,7 @@
     file
     bind
     killall
+    usbutils
 
     rsync
     lftp
@@ -62,7 +64,7 @@
     jdk
     jetbrains.idea-community
 
-    unityhub
+    spotify
 
     #kicad
 
@@ -78,8 +80,6 @@
 
     gnome3.adwaita-icon-theme
 
-    platformio
-
     anki-bin
 
     joplin-desktop
@@ -87,6 +87,9 @@
     kdenlive
 
     qgroundcontrol
+
+    yubikey-manager
+    yubikey-manager-qt
   ];
 
   home.stateVersion = "22.11";

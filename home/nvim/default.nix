@@ -10,8 +10,8 @@
       nvim-web-devicons
       nvim-tree-lua
 
-      nvim-lspconfig
-      nvim-compe
+      # nvim-lspconfig
+      # nvim-compe
 
       telescope-nvim
       popup-nvim
@@ -32,20 +32,20 @@
       lua << EOF
       ${builtins.readFile ./nvim.lua}
       ${builtins.readFile ./treesitter.lua}
-      ${builtins.readFile ./lsp.lua}
+      -- ${builtins.readFile ./lsp.lua}
       ${builtins.readFile ./indent-blankline.lua}
       ${builtins.readFile ./bufferline.lua}
       EOF
     '';
-    extraPackages = with pkgs; [
-      gcc
-      pyright
-      nodePackages.diagnostic-languageserver
-      nodePackages.typescript-language-server
-      rust-analyzer rustfmt
-      rnix-lsp
-      clang_9
-    ];
+    # extraPackages = with pkgs; [
+    #   gcc
+    #   pyright
+    #   nodePackages.diagnostic-languageserver
+    #   nodePackages.typescript-language-server
+    #   rust-analyzer rustfmt
+    #   rnix-lsp
+    #   clang_9
+    # ];
   };
 
   home.sessionVariables = {

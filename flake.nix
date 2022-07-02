@@ -20,6 +20,7 @@
         }
         {
           nixpkgs.overlays = [
+            (import ./pkgs)
             polymc.overlay
           ];
           nixpkgs.config.allowUnfree = true;

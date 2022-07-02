@@ -31,6 +31,9 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[svelte]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "editor.suggestSelection": "first",
   "editor.lineNumbers": "relative",
   "editor.bracketPairColorization.enabled": true,
@@ -55,6 +58,7 @@
   "code-runner.enableAppInsights": false,
   "python.languageServer": "Pylance",
   "python.formatting.provider": "black",
+  "python.defaultInterpreterPath": "${env:PYTHONPATH}",
   "git.autofetch": true,
   "vim.leader": "<space>",
   "vim.normalModeKeyBindingsNonRecursive": [
@@ -101,44 +105,6 @@
       ],
       "commands": [
         "workbench.action.showCommands"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "d"
-      ],
-      "commands": [
-        "workbench.action.closeActiveEditor"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "w"
-      ],
-      "commands": [
-        "workbench.action.files.save"
-      ]
-    },
-    {
-      "before": [
-        "<leader>",
-        "c"
-      ],
-      "commands": [
-        "editor.action.commentLine"
-      ]
-    }
-  ],
-  "vim.visualModeKeyBindingsNonRecursive": [
-    {
-      "before": [
-        "<leader>",
-        "c"
-      ],
-      "commands": [
-        "editor.action.commentLine"
       ]
     }
   ],
