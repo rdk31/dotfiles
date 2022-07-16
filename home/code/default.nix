@@ -1,22 +1,13 @@
 { config, pkgs, lib, ... }:
 let
-  marketplaceExtensions = pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-    # {
-    #   name = "spellright";
-    #   publisher = "ban";
-    #   version = "3.0.64";
-    #   sha256 = "sha256-OCbMTTrXCF/JkzD9b1nz/MwpxGseMTiFOloS8CHsCu0=";
-    # }
-  ] ++ [
+  marketplaceExtensions = [
     (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
       mktplcRef = {
-        name = "vscode-pylance";
-        publisher = "MS-python";
-        version = "2022.6.30";
-        sha256 = "sha256-qRhVZSZGXzPer6zGYVhUPF3iVAuouXv7OFLpKT5fF5E=";
+        name = "copilot";
+        publisher = "GitHub";
+        version = "1.31.6194";
+        sha256 = "sha256-obUu3pHvdwzWBejVWl94Ki8YN7ujHukNX0gvRdWhBYw=";
       };
-
-      buildInputs = [ pkgs.nodePackages.pyright ];
 
       meta = {
         license = lib.licenses.unfree;
@@ -31,7 +22,7 @@ in
     keybindings = builtins.fromJSON (builtins.readFile ./keybindings.json);
     extensions = (with pkgs.vscode-extensions; [
       ms-python.python
-      # ms-python.vscode-pylance
+      ms-python.vscode-pylance
       jnoortheen.nix-ide
       #vadimcn.vscode-lldb 
       matklad.rust-analyzer
@@ -54,8 +45,7 @@ in
       james-yu.latex-workshop
       foam.foam-vscode
       yzhang.markdown-all-in-one
-      svelte.svelte-vscode
-      github.copilot
+      #github.copilot
     ]) ++ marketplaceExtensions;
   };
 

@@ -7,14 +7,15 @@ let
     scikit-learn
 
     requests
+
+    pwntools
+
+    black
+    isort
   ]);
 in
 {
   home.packages = with pkgs.python310Packages; [
     pythonEnv
-
-    virtualenv
-    black
-    isort
   ];
 }

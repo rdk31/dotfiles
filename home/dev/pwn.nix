@@ -14,7 +14,7 @@
     burpsuite
 
     pwndbg
-    pwntools
+    #pwntools
 
     binwalk
   ];

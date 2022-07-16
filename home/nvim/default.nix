@@ -32,11 +32,11 @@
       lua << EOF
       ${builtins.readFile ./nvim.lua}
       ${builtins.readFile ./treesitter.lua}
-      -- ${builtins.readFile ./lsp.lua}
       ${builtins.readFile ./indent-blankline.lua}
       ${builtins.readFile ./bufferline.lua}
       EOF
     '';
+    # ${builtins.readFile ./lsp.lua}
     # extraPackages = with pkgs; [
     #   gcc
     #   pyright
