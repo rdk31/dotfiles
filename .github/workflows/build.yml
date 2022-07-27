@@ -1,0 +1,32 @@
+name: build nixos
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+    paths:
+      - flake.lock
+  pull_request:
+
+env:
+  NIX_SHOW_STATS: 1
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Nix
+        uses: cachix/install-nix-action@v17
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+
+      - name: Setup Cachix
+        uses: cachix/cachix-action@v10
+        with:
+          name: rdk31-dotfiles
+          authToken: "${{ secrets.CACHIX_TOKEN }}"
+
+      - name: Build Configuration
+        run: nix build github:rdk31/dotfiles#nixosConfigurations.xps.config.system.build.toplevel -L --show-trace
