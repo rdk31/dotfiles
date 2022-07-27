@@ -128,7 +128,7 @@
       dates = "daily";
       options = "--delete-older-than 7d";
     };
-    autoOptimiseStore = true;
+    settings.auto-optimise-store = true;
   };
 
   services.getty.autologinUser = "rdk";
