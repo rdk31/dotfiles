@@ -1,7 +1,8 @@
 { config, pkgs, lib, ... }:
 let
   mod = "Mod4";
-in {
+in
+{
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
@@ -95,7 +96,7 @@ in {
       keybindings = lib.mkOptionDefault {
         "${mod}+0" = "workspace number 10";
         "${mod}+Shift+0" = "move container to workspace number 10";
-        "${mod}+Tab" = "workspace back_and_forth"; 
+        "${mod}+Tab" = "workspace back_and_forth";
 
         "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +5%";
         "XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -5%";

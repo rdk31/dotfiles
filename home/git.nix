@@ -7,7 +7,6 @@
 
   programs.gpg.enable = true;
   services.gpg-agent.enable = true;
-  services.gnome-keyring.enable = true;
 
   programs.git = {
     enable = true;

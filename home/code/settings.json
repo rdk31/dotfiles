@@ -1,28 +1,26 @@
 {
-  "editor.formatOnSave": true,
-  "editor.formatOnPaste": true,
-  "editor.tabSize": 2,
-  "[rust]": {
-    "editor.tabSize": 4
-  },
-  "rust-analyzer.checkOnSave.command": "clippy",
-  "rust-analyzer.diagnostics.experimental.enable": false,
-  "[python]": {
-    "editor.tabSize": 4
-  },
   "[c]": {
     "editor.tabSize": 4
   },
   "[cpp]": {
     "editor.tabSize": 4
   },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[python]": {
+    "editor.tabSize": 4
+  },
+  "[rust]": {
+    "editor.tabSize": 4
+  },
+  "[svelte]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
@@ -31,82 +29,55 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[svelte]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "editor.suggestSelection": "first",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.guides.bracketPairs": "active",
   "editor.lineNumbers": "relative",
-  "editor.bracketPairColorization.enabled": true,
-  "editor.guides.bracketPairs":"active",
+  "editor.tabSize": 2,
   "files.enableTrash": false,
   "files.watcherExclude": {
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
     "**/node_modules/*/**": true
   },
-  "workbench.editor.enablePreview": false,
-  "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "One Dark",
-  "window.restoreWindows": "none",
-  "window.menuBarVisibility": "toggle",
-  "telemetry.telemetryLevel": "off",
-  "zenMode.centerLayout": false,
-  "zenMode.hideStatusBar": false,
-  "zenMode.hideTabs": false,
-  "zenMode.fullScreen": false,
-  "zenMode.hideLineNumbers": false,
-  "code-runner.enableAppInsights": false,
-  "python.languageServer": "Pylance",
-  "python.formatting.provider": "black",
-  "python.defaultInterpreterPath": "${env:PYTHONPATH}",
   "git.autofetch": true,
+  "python.defaultInterpreterPath": "${env:PYTHONPATH}",
+  "python.formatting.provider": "black",
+  "python.languageServer": "Pylance",
+  "rust-analyzer.checkOnSave.command": "clippy",
+  "telemetry.telemetryLevel": "off",
   "vim.leader": "<space>",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "<leader>",
-        "l"
-      ],
-      "commands": [
-        "workbench.action.nextEditorInGroup"
-      ]
+      "before": ["<leader>", "l"],
+      "commands": ["workbench.action.nextEditorInGroup"]
     },
     {
-      "before": [
-        "<leader>",
-        "h"
-      ],
-      "commands": [
-        "workbench.action.previousEditorInGroup"
-      ]
+      "before": ["<leader>", "h"],
+      "commands": ["workbench.action.previousEditorInGroup"]
     },
     {
-      "before": [
-        "<leader>",
-        "f"
-      ],
-      "commands": [
-        "workbench.action.quickOpen"
-      ]
+      "before": ["<leader>", "f"],
+      "commands": ["workbench.action.quickOpen"]
     },
     {
-      "before": [
-        "<leader>",
-        "z"
-      ],
-      "commands": [
-        "workbench.action.toggleZenMode"
-      ]
+      "before": ["<leader>", "z"],
+      "commands": ["workbench.action.toggleZenMode"]
     },
     {
-      "before": [
-        "<leader>",
-        "p"
-      ],
-      "commands": [
-        "workbench.action.showCommands"
-      ]
+      "before": ["<leader>", "p"],
+      "commands": ["workbench.action.showCommands"]
     }
   ],
-  "window.zoomLevel": 1
+  "window.menuBarVisibility": "toggle",
+  "window.restoreWindows": "none",
+  "window.zoomLevel": 1,
+  "workbench.colorTheme": "One Dark",
+  "workbench.editor.enablePreview": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "zenMode.centerLayout": false,
+  "zenMode.fullScreen": false,
+  "zenMode.hideLineNumbers": false,
+  "zenMode.hideStatusBar": false,
+  "zenMode.hideTabs": false
 }

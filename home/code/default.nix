@@ -42,9 +42,8 @@ in
       ms-toolsai.jupyter-renderers
       ms-vscode.cpptools
       ms-vscode-remote.remote-ssh
-      james-yu.latex-workshop
-      foam.foam-vscode
-      yzhang.markdown-all-in-one
+      #james-yu.latex-workshop
+      #yzhang.markdown-all-in-one
       #github.copilot
     ]) ++ marketplaceExtensions;
   };
