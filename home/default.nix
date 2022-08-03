@@ -72,7 +72,9 @@
 
     postman
     docker-compose
+
     mongodb-compass
+    mongodb-tools
 
     networkmanagerapplet
 
