@@ -6,25 +6,28 @@
     ./sway
     ./i3status-rs.nix
     ./kanshi.nix
-    #./waybar
     ./tmux
     ./code
-    ./zathura.nix
     ./ssh.nix
     ./git.nix
     ./zsh.nix
     #./foot.nix
-    #./alacritty.nix
     ./kitty.nix
     ./mpv.nix
     ./lf.nix
     ./firefox.nix
-    ./obs-studio.nix
     ./dev
   ];
 
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
+
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+    ];
+  };
 
   home.packages = with pkgs; [
     exa

@@ -146,6 +146,19 @@
     '';
   };
 
+  services.openssh.enable = true;
+
+  age.secrets.ssh-config = {
+    owner = "rdk";
+    file = secrets/ssh-config.age;
+  };
+
+  age.secrets.newsboat-urls = {
+    owner = "rdk";
+    file = secrets/newsboat-urls.age;
+    path = "/home/rdk/.config/newsboat/urls";
+  };
+
   services.pcscd.enable = true;
 
   # This value determines the NixOS release from which the default

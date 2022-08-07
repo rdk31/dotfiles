@@ -16,5 +16,12 @@
       key = "B6ADEEB57627C4AE";
       signByDefault = true;
     };
+    # extraConfig = {
+    #   url = {
+    #     "https://github.com/" = {
+    #       insteadOf = "git://github.com/";
+    #     };
+    #   };
+    # };
   };
 }

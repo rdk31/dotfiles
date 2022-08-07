@@ -1,7 +1,10 @@
-{ ... }:
+{ config, ... }:
 {
   programs.ssh = {
     enable = true;
-    extraConfig = builtins.readFile ./../secrets/ssh-config;
+    extraConfig = ''
+      Include /run/agenix/ssh-config
+    '';
   };
+
 }
