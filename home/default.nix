@@ -13,7 +13,6 @@
     ./zsh.nix
     #./foot.nix
     ./kitty.nix
-    ./mpv.nix
     ./lf.nix
     ./firefox.nix
     ./dev

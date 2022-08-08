@@ -6,5 +6,7 @@
     rust-analyzer
     clippy
     rustfmt
+    openssl.dev
+    pkgconfig
   ];
 }

@@ -50,22 +50,37 @@
     keyMap = "us";
   };
 
-  services.logind = {
-    lidSwitchExternalPower = "ignore";
-    extraConfig = ''
-      HandlePowerKey=ignore
-    '';
-  };
+  services = {
+    logind = {
+      lidSwitchExternalPower = "ignore";
+      extraConfig = ''
+        HandlePowerKey=ignore
+      '';
+    };
 
-  services.printing.enable = true;
+    printing.enable = true;
+
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
+
+    blueman.enable = true;
+
+    openssh.enable = true;
+
+    pcscd.enable = true;
+
+    gnome.gnome-keyring.enable = true;
+
+    upower.enable = true;
+    thermald.enable = true;
+    tlp.enable = true;
+  };
 
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 
   xdg.portal.enable = true;
   xdg.portal.wlr.enable = true;
@@ -82,7 +97,6 @@
   };
 
   hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
 
   virtualisation = {
     docker.enable = true;
@@ -114,8 +128,6 @@
   ];
   programs.zsh.enable = true;
 
-  programs.steam.enable = true;
-
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = ''
@@ -145,14 +157,11 @@
   '';
   programs.wshowkeys.enable = true;
 
-  services.gnome.gnome-keyring.enable = true;
   security.pam.services.swaylock = {
     text = ''
       auth include login
     '';
   };
-
-  services.openssh.enable = true;
 
   age.secrets.ssh-config = {
     owner = "rdk";
@@ -163,8 +172,6 @@
     owner = "rdk";
     file = secrets/newsboat-urls.age;
   };
-
-  services.pcscd.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
