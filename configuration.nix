@@ -156,7 +156,6 @@
   age.secrets.newsboat-urls = {
     owner = "rdk";
     file = secrets/newsboat-urls.age;
-    path = "/home/rdk/.config/newsboat/urls";
   };
 
   services.pcscd.enable = true;
