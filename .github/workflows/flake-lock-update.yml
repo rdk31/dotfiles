@@ -1,4 +1,5 @@
 name: update-flake-lock
+
 on:
   workflow_dispatch: # allows manual triggering
   schedule:
@@ -17,3 +18,5 @@ jobs:
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
       - name: Update flake.lock
         uses: DeterminateSystems/update-flake-lock@v12
+        with:
+          token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
