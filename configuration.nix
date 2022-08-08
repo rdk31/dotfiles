@@ -130,6 +130,12 @@
     };
     settings = {
       auto-optimise-store = true;
+      substituters = [
+        "https://rdk31-dotfiles.cachix.org"
+      ];
+      trusted-public-keys = [
+        "rdk31-dotfiles.cachix.org-1:Q2QZ31Iw2z9r7DqzxgnXoEQ86JTU8NxCDCv5BTRcYXI="
+      ];
     };
   };
 
