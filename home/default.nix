@@ -42,7 +42,7 @@
 
     rsync
     lftp
-    insync-v3
+    #insync-v3
 
     xdg-utils
 
@@ -58,7 +58,7 @@
 
     discord
     signal-desktop
-    teams
+    #teams
     zoom-us
 
     libreoffice
@@ -85,12 +85,6 @@
     gnome3.adwaita-icon-theme
 
     anki-bin
-
-    joplin-desktop
-
-    kdenlive
-
-    qgroundcontrol
 
     yubikey-manager
     yubikey-manager-qt

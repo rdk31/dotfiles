@@ -9,7 +9,7 @@
 
     nmap
     wireshark
-    saleae-logic-2
+    #saleae-logic-2
 
     burpsuite
 
