@@ -16,6 +16,7 @@
       key = "B6ADEEB57627C4AE";
       signByDefault = true;
     };
+    difftastic.enable = true;
     # extraConfig = {
     #   url = {
     #     "https://github.com/" = {

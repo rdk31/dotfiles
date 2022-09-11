@@ -88,6 +88,8 @@
 
     yubikey-manager
     yubikey-manager-qt
+
+    helix
   ];
 
   home.stateVersion = "22.11";

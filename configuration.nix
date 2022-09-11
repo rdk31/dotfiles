@@ -157,13 +157,15 @@
   environment.loginShellInit = ''
     [[ "$(tty)" == /dev/tty1 ]] && sway
   '';
-  programs.wshowkeys.enable = true;
+
+  services.udisks2.enable = true;
 
   security.pam.services.swaylock = {
     text = ''
       auth include login
     '';
   };
+  security.polkit.enable = true;
 
   age.secrets.ssh-config = {
     owner = "rdk";
