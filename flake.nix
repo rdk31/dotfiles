@@ -46,6 +46,7 @@
           agenix.nixosModule
         ];
       };
+    hydraJobs = builtins.mapAttrs (_: system: system.config.system.build.toplevel) self.nixosConfigurations;
   } //
   (flake-utils.lib.eachDefaultSystem (system:
     let
