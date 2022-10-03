@@ -82,7 +82,7 @@
 
     polymc
 
-    gnome3.adwaita-icon-theme
+    gnome.adwaita-icon-theme
 
     anki-bin
 

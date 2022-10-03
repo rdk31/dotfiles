@@ -7,6 +7,6 @@
     clippy
     rustfmt
     openssl.dev
-    pkgconfig
+    pkg-config
   ];
 }
