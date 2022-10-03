@@ -90,6 +90,8 @@
     yubikey-manager-qt
 
     helix
+
+    logisim-evolution
   ];
 
   home.stateVersion = "22.11";
