@@ -80,7 +80,7 @@
 
     networkmanagerapplet
 
-    polymc
+    #polymc
 
     gnome.adwaita-icon-theme
 

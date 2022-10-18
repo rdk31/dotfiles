@@ -42,7 +42,8 @@ in
       ms-toolsai.jupyter-renderers
       ms-vscode.cpptools
       ms-vscode-remote.remote-ssh
-      #james-yu.latex-workshop
+      james-yu.latex-workshop
+      golang.go
       #yzhang.markdown-all-in-one
       #github.copilot
     ]) ++ marketplaceExtensions;
