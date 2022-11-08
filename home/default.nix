@@ -80,7 +80,7 @@
 
     networkmanagerapplet
 
-    #polymc
+    prismlauncher
 
     gnome.adwaita-icon-theme
 
