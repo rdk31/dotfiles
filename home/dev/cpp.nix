@@ -3,6 +3,6 @@
     clang
     cmake
 
-    platformio
+    #platformio
   ];
 }
