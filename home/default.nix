@@ -41,6 +41,7 @@
     usbutils
 
     rsync
+    rclone
     lftp
     #insync-v3
 
