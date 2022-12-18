@@ -145,12 +145,12 @@
       substituters = [
         "https://rdk31-dotfiles.cachix.org"
         "https://colmena.cachix.org"
-        "https://nix.rdk31.com"
+        #"https://nix.rdk31.com"
       ];
       trusted-public-keys = [
         "rdk31-dotfiles.cachix.org-1:Q2QZ31Iw2z9r7DqzxgnXoEQ86JTU8NxCDCv5BTRcYXI="
         "colmena.cachix.org-1:7BzpDnjjH8ki2CT3f6GdOk7QAzPOl+1t3LvTLXqYcSg="
-        "nix.rdk31.com:dQ/6W1RcATXr7AQpZzwz5dVsq/U6pUcz4wf32YdmmUs="
+        #"nix.rdk31.com:dQ/6W1RcATXr7AQpZzwz5dVsq/U6pUcz4wf32YdmmUs="
       ];
     };
   };
