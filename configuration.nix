@@ -97,6 +97,8 @@
   };
 
   hardware.bluetooth.enable = true;
+    programs.wshowkeys.enable = true;
+
 
   virtualisation = {
     docker.enable = true;

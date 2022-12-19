@@ -15,7 +15,7 @@ let
   ]);
 in
 {
-  home.packages = with pkgs.python310Packages; [
+  home.packages = with pkgs; [
     pythonEnv
   ];
 }

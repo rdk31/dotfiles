@@ -31,30 +31,9 @@ map('n', '<leader>h', ':bprevious<CR>', options)
 map('n', '<leader>l', ':bnext<CR>', options)
 map('n', '<leader>d', ':bdelete<CR>', options)
 
-map('n', '<leader>w', ':w<CR>', options)
-
-map('n', '<leader>f', ':Telescope find_files<CR>', options)
-map('n', '<leader>g', ':Telescope live_grep<CR>', options)
-map('n', '<leader>b', ':Telescope buffers<CR>', options)
-
-map('n', '<leader>n', ':NvimTreeToggle<CR>', options)
-
-map('n', '<leader>F', ':lua vim.lsp.buf.formatting()<CR>', options)
-map('n', '<leader>ca', ':lua vim.lsp.buf.code_action()<CR>', options)
-map('n', '<leader>r', ':lua vim.lsp.buf.rename()<CR>', options)
-
-require('nvim-autopairs').setup{}
-require('nvim-tree').setup{}
-
 require('lualine').setup {
   options = { theme = 'onedark' }
 }
 
-require('telescope').setup {
-  defaults = { 
-    file_ignore_patterns = {
-      "node_modules",
-      "target"
-    } 
-  } 
-}
+vim.api.nvim_set_option("timeoutlen", 300)
+require("which-key").setup({})
