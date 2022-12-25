@@ -97,13 +97,12 @@
   };
 
   hardware.bluetooth.enable = true;
-    programs.wshowkeys.enable = true;
-
+  programs.wshowkeys.enable = true;
 
   virtualisation = {
     docker.enable = true;
-    #libvirtd.enable = true;
-    #virtualbox.host.enable = true;
+    libvirtd.enable = true;
+    virtualbox.host.enable = true;
     #virtualbox.host.enableExtensionPack = true;
   };
 

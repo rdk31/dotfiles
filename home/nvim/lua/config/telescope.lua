@@ -19,16 +19,9 @@ telescope.setup({
 telescope.load_extension("file_browser")
 
 wk.register({
-	T = { builtin.builtin, "Telescope - find picker" },
-	f = {
-		name = "Telescope",
-		f = { builtin.find_files, "Find file" },
-		g = { builtin.live_grep, "Live grep" },
-		b = { builtin.buffers, "Buffers" },
-		h = { builtin.help_tags, "Help tags" },
-		t = { builtin.treesitter, "Treesitter" },
-		r = { builtin.lsp_references, "References" },
-		c = { builtin.commands, "Commands" },
-		e = { telescope.extensions.file_browser.file_browser, "File browser" },
-	},
+  f = { builtin.find_files, "Find file" },
+  g = { builtin.live_grep, "Live grep" },
+  t = { builtin.treesitter, "Treesitter" },
+  rf = { builtin.lsp_references, "References" },
+  e = { telescope.extensions.file_browser.file_browser, "File browser" },
 }, { prefix = "<leader>" })
