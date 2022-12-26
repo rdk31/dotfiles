@@ -10,8 +10,10 @@ telescope.setup({
 			},
 		},
     file_ignore_patterns = {
-      "node_modules",
-      "target"
+      "node_modules/",
+      "target/",
+      ".git/",
+      ".direnv/"
     } 
 	},
 })
@@ -19,7 +21,8 @@ telescope.setup({
 telescope.load_extension("file_browser")
 
 wk.register({
-  f = { builtin.find_files, "Find file" },
+  f = { function() builtin.find_files({ hidden=true }) end, "Find file" },
+  F = { function() builtin.find_files({ hidden=true, no_ignore=true }) end, "Find file (with files ignored by .gitignore)" },
   g = { builtin.live_grep, "Live grep" },
   t = { builtin.treesitter, "Treesitter" },
   rf = { builtin.lsp_references, "References" },
