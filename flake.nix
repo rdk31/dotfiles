@@ -6,13 +6,12 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-22.05";
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
     home-manager.url = "github:nix-community/home-manager";
-    polymc.url = "github:PolyMC/PolyMC";
 
     agenix.url = "github:ryantm/agenix";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, flake-utils, agenix, nixpkgs, nixpkgs-stable, nixos-hardware, home-manager, polymc, ... }@inputs: {
+  outputs = { self, flake-utils, agenix, nixpkgs, nixpkgs-stable, nixos-hardware, home-manager, ... }@inputs: {
     nixosConfigurations."xps" =
       let
         system = "x86_64-linux";
@@ -32,7 +31,6 @@
           {
             nixpkgs.overlays = [
               (import ./pkgs)
-              polymc.overlay
               (final: prev: {
                 stable = import nixpkgs-stable {
                   inherit system;
