@@ -20,7 +20,7 @@ opt.number = true
 opt.relativenumber = true
 opt.signcolumn = "yes"
 
-opt.clipboard = "unnamedplus"
+--opt.clipboard = "unnamedplus"
 
 opt.hidden = true
 opt.incsearch = true

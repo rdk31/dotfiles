@@ -58,6 +58,10 @@ require("lspconfig").diagnosticls.setup {
     }
   }
 }
+require('lspconfig').terraformls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
 
 require('rust-tools').setup{
   server = {

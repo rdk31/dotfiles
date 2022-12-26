@@ -18,6 +18,7 @@
       ls = "exa";
       grep = "grep --color=auto";
       cal = "cal -m";
+      lg = "lazygit";
     };
     plugins = [
       {

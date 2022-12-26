@@ -89,6 +89,9 @@
 
       # lazygit
       lazygit
+
+      # terraform
+      terraform-ls
     ];
   };
 

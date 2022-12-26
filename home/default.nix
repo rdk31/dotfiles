@@ -90,7 +90,7 @@
     yubikey-manager
     yubikey-manager-qt
 
-    helix
+    lazygit
 
     logisim-evolution
   ];
