@@ -36,6 +36,10 @@
 
       lualine-nvim
 
+      vim-slash
+      gitsigns-nvim
+      lazygit-nvim
+
       vim-nix
       rust-tools-nvim
 
@@ -82,9 +86,13 @@
       # telescope
       ripgrep
       fd
+
+      # lazygit
+      lazygit
     ];
   };
 
+  # TODO: hardcoded path
   xdg.configFile."nvim/lua".source = config.lib.file.mkOutOfStoreSymlink /home/rdk/.dotfiles/home/nvim/lua;
 
   home.sessionVariables = {

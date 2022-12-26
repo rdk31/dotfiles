@@ -29,11 +29,13 @@ local map = vim.api.nvim_set_keymap
 options = { noremap = true, silent = true }
 map('n', '<leader>h', ':bprevious<CR>', options)
 map('n', '<leader>l', ':bnext<CR>', options)
-map('n', '<leader>d', ':bdelete<CR>', options)
+map('n', '<leader>q', ':bdelete<CR>', options)
 
-require('lualine').setup {
+require('lualine').setup({
   options = { theme = 'onedark' }
-}
+})
 
 vim.api.nvim_set_option("timeoutlen", 300)
-require("which-key").setup({})
+require("which-key").setup()
+
+require('gitsigns').setup()
