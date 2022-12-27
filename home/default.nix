@@ -16,6 +16,7 @@
     ./lf.nix
     ./firefox.nix
     ./dev
+    ./scripts.nix
   ];
 
   programs.direnv.enable = true;

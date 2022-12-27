@@ -14,7 +14,7 @@ telescope.setup({
       "target/",
       ".git/",
       ".direnv/"
-    } 
+    },
 	},
 })
 

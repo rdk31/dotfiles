@@ -17,12 +17,8 @@
       signByDefault = true;
     };
     difftastic.enable = true;
-    # extraConfig = {
-    #   url = {
-    #     "https://github.com/" = {
-    #       insteadOf = "git://github.com/";
-    #     };
-    #   };
-    # };
+    extraConfig = {
+      pull.ff = "only";
+    };
   };
 }

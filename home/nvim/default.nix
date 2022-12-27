@@ -38,7 +38,6 @@
 
       vim-slash
       gitsigns-nvim
-      lazygit-nvim
 
       vim-nix
       rust-tools-nvim
@@ -86,9 +85,6 @@
       # telescope
       ripgrep
       fd
-
-      # lazygit
-      lazygit
 
       # terraform
       terraform-ls
