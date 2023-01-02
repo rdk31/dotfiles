@@ -151,7 +151,6 @@ in
     defaultTimeout = 2000;
   };
 
-
   home.packages = with pkgs; [
     sway-contrib.grimshot
     wl-clipboard
