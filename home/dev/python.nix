@@ -5,8 +5,12 @@ let
     pandas
     matplotlib
     scikit-learn
+    tqdm
+    ray
 
     requests
+    fastapi
+    uvicorn
 
     pwntools
 
@@ -17,5 +21,6 @@ in
 {
   home.packages = with pkgs; [
     pythonEnv
+    poetry
   ];
 }
