@@ -41,7 +41,7 @@
             nixpkgs.config.allowUnfree = true;
             nix.registry.nixpkgs.flake = nixpkgs;
           }
-          agenix.nixosModule
+          agenix.nixosModules.default
         ];
       };
     hydraJobs = builtins.mapAttrs (_: system: system.config.system.build.toplevel) self.nixosConfigurations;
@@ -53,7 +53,7 @@
     {
       devShells.default = pkgs.mkShell {
         packages = [
-          agenix.defaultPackage.${system}
+          agenix.packages.${system}.default
         ];
       };
     }
