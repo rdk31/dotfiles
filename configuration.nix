@@ -132,6 +132,10 @@
   ];
   programs.zsh.enable = true;
 
+  services.udev.packages = with pkgs; [
+    saleae-logic-2
+  ];
+
   nix = {
     package = pkgs.nixVersions.stable;
     extraOptions = ''

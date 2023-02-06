@@ -66,11 +66,10 @@
     libreoffice
 
     jdk
-    jetbrains.idea-community
 
     spotify
 
-    #kicad
+    kicad
 
     remmina
 
