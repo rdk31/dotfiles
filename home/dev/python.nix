@@ -16,6 +16,8 @@ let
 
     black
     isort
+
+    ipykernel
   ]);
 in
 {
