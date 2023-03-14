@@ -4,5 +4,6 @@
     ./rust.nix
     ./pwn.nix
     ./cpp.nix
+    ./ml.nix
   ];
 }

@@ -37,6 +37,17 @@
     '';
   };
 
+  #nixpkgs.config.packageOverrides = pkgs: rec {
+  #  wpa_supplicant = pkgs.wpa_supplicant.overrideAttrs (attrs: {
+  #    #patches = attrs.patches ++ [ ./eduroam.patch ];
+  #    #extraConfig = builtins.replaceStrings [ "CONFIG_TLSV11=y" "CONFIG_TLSV12=y" ] [ "CONFIG_TLSV11=n" "CONFIG_TLSV12=n" ] attrs.extraConfig;
+  #    extraConfig = attrs.extraConfig + ''
+  #      undefine CONFIG_TLSV11
+  #      undefine CONFIG_TLSV12
+  #    '';
+  #  });
+  #};
+
   fonts = {
     fonts = with pkgs; [
       nerdfonts
@@ -54,7 +65,7 @@
     logind = {
       lidSwitchExternalPower = "ignore";
       extraConfig = ''
-        HandlePowerKey=ignore
+        HandlePowerKey = ignore
       '';
     };
 
@@ -196,3 +207,4 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.11"; # Did you read the comment?
 }
+
