@@ -60,8 +60,32 @@ let
   };
 
   pythonEnv = pkgs.python310.withPackages (p: with p; [
-    pymongo
+    numpy
+    dask
     dask-mongo
+    pandas
+    pyarrow
+    matplotlib
+    seaborn
+    plotly
+    scikit-learn
+    torch
+    pytorch-lightning
+    torchvision
+    wandb
+    tqdm
+    ray
+    networkx
+    pyvis
+
+    # hydra-core
+    # omegaconf
+
+    jupyter
+    ipykernel
+    nbformat
+
+    pymongo
 
     requests
     fastapi

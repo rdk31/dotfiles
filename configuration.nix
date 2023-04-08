@@ -50,7 +50,7 @@
 
   fonts = {
     fonts = with pkgs; [
-      nerdfonts
+      # nerdfonts
     ];
     enableDefaultFonts = true;
   };
