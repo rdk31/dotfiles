@@ -60,21 +60,6 @@ let
   };
 
   pythonEnv = pkgs.python310.withPackages (p: with p; [
-    numpy
-    dask
-    pandas
-    pyarrow
-    matplotlib
-    seaborn
-    plotly
-    scikit-learn
-    torch
-    pytorch-lightning
-    wandb
-    tqdm
-    ray
-    networkx
-
     pymongo
     dask-mongo
 
@@ -86,10 +71,6 @@ let
 
     black
     isort
-
-    jupyter
-    ipykernel
-    nbformat
 
     cassiopeia
   ]);

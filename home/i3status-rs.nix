@@ -21,7 +21,7 @@
           {
             block = "net";
             device = "wlp0s20f3";
-            format = "{ssid} {signal_strength}";
+            format = "{signal_strength}";
             hide_inactive = true;
             interval = 5;
           }

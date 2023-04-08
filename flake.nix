@@ -27,6 +27,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.rdk = import ./home;
+            home-manager.extraSpecialArgs = { inherit inputs; };
           }
           {
             nixpkgs.overlays = [
@@ -44,18 +45,5 @@
           agenix.nixosModules.default
         ];
       };
-    hydraJobs = builtins.mapAttrs (_: system: system.config.system.build.toplevel) self.nixosConfigurations;
-  } //
-  (flake-utils.lib.eachDefaultSystem (system:
-    let
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
-      devShells.default = pkgs.mkShell {
-        packages = [
-          agenix.packages.${system}.default
-        ];
-      };
-    }
-  ));
+  };
 }

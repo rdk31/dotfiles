@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [
     ./nvim
@@ -93,6 +93,11 @@
     lazygit
 
     logisim-evolution
+
+    #agenix
+    zotero
+
+    inputs.agenix.packages.x86_64-linux.default
   ];
 
   home.stateVersion = "22.11";
