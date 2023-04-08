@@ -63,13 +63,11 @@
     #teams
     zoom-us
 
-    libreoffice
-
     jdk
 
     spotify
 
-    kicad
+    # kicad
 
     remmina
 
@@ -92,9 +90,6 @@
 
     lazygit
 
-    logisim-evolution
-
-    #agenix
     zotero
 
     inputs.agenix.packages.x86_64-linux.default

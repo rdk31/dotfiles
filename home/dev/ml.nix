@@ -1,31 +1,4 @@
 { pkgs, ... }:
-let
-  pythonEnv = pkgs.python310.withPackages (p: with p; [
-    numpy
-    dask
-    pandas
-    pyarrow
-    matplotlib
-    seaborn
-    plotly
-    scikit-learn
-    torch
-    pytorch-lightning
-    torchvision
-    wandb
-    tqdm
-    ray
-    networkx
-    pyvis
-
-    hydra-core
-    omegaconf
-
-    jupyter
-    ipykernel
-    nbformat
-  ]);
-in
 {
   home.packages = with pkgs; [
     (gephi.overrideAttrs (old: rec {
@@ -57,6 +30,5 @@ in
       '';
     }))
     cytoscape
-    pythonEnv
   ];
 }

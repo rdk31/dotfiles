@@ -146,7 +146,7 @@ in
   };
   services.udiskie.enable = true;
 
-  programs.mako = {
+  services.mako = {
     enable = true;
     defaultTimeout = 2000;
   };
