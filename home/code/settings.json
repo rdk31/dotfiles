@@ -14,9 +14,6 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[python]": {
-    "editor.tabSize": 4
-  },
   "[rust]": {
     "editor.tabSize": 4
   },
