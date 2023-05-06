@@ -3,8 +3,8 @@
   programs.ssh = {
     enable = true;
     matchBlocks = {
-      "nixhome" = {
-        hostname = "nixhome";
+      "bayes" = {
+        hostname = "bayes";
         user = "rdk";
       };
     };

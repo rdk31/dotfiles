@@ -8,6 +8,7 @@
     home-manager.url = "github:nix-community/home-manager";
 
     agenix.url = "github:ryantm/agenix";
+    devenv.url = "github:cachix/devenv/latest";
     flake-utils.url = "github:numtide/flake-utils";
   };
 

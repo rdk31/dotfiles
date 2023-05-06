@@ -77,9 +77,13 @@ let
     ray
     networkx
     pyvis
+    graphviz
 
     # hydra-core
     # omegaconf
+
+    praw
+    transformers
 
     jupyter
     ipykernel

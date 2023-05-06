@@ -31,7 +31,7 @@
           }
           {
             block = "battery";
-            format = " $percentage $time ";
+            format = " $icon $percentage {$time |} ";
           }
           {
             block = "time";
