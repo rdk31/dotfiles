@@ -2,7 +2,6 @@
 {
   imports = [
     ./nvim
-    ./newsboat
     ./sway
     ./i3status-rs.nix
     ./kanshi.nix

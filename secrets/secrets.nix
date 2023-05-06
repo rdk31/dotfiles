@@ -5,5 +5,4 @@ let
 in
 {
   "ssh-config.age".publicKeys = [ rdk xps ];
-  "newsboat-urls.age".publicKeys = [ rdk xps ];
 }
