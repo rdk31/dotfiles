@@ -14,7 +14,7 @@
     ./kitty.nix
     ./lf.nix
     ./firefox.nix
-    ./dev
+    ./dev.nix
     ./scripts.nix
   ];
 
