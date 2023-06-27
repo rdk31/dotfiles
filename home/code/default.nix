@@ -16,6 +16,18 @@ let
 
     (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
       mktplcRef = {
+        name = "isort";
+        publisher = "ms-python";
+        version = "2023.9.11721010";
+        sha256 = "sha256-s+TEhmB27mZVMnem2DDV62656Q31umLMRP6fxeHSvY0=";
+      };
+      meta = {
+        license = lib.licenses.mit;
+      };
+    })
+
+    (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
+      mktplcRef = {
         name = "gitlens";
         publisher = "eamodio";
         version = "2022.12.604";

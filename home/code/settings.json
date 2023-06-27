@@ -17,6 +17,11 @@
   "[rust]": {
     "editor.tabSize": 4
   },
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
   "[svelte]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -38,10 +43,10 @@
     "**/node_modules/*/**": true
   },
   "git.autofetch": true,
+  "isort.args":["--profile", "black"],
   "python.defaultInterpreterPath": "${env:PYTHONPATH}",
   "python.formatting.provider": "black",
   "python.languageServer": "Pylance",
-  "rust-analyzer.checkOnSave.command": "clippy",
   "telemetry.telemetryLevel": "off",
   "vim.leader": "<space>",
   "vim.normalModeKeyBindingsNonRecursive": [
