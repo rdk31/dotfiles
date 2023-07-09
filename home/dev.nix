@@ -13,51 +13,52 @@ let
     ];
   };
 
-  pythonEnv = pkgs.python310.withPackages (p: with p; [
-    numpy
-    dask
-    dask-mongo
-    pandas
-    pyarrow
-    matplotlib
-    seaborn
-    plotly
-    scikit-learn
-    torch
-    pytorch-lightning
-    torchvision
-    wandb
-    tqdm
-    ray
-    networkx
-    pyvis
-    graphviz
+  pythonEnv = [
+    (pkgs.python310.withPackages
+      (p: with p; [
+        numpy
+        dask
+        dask-mongo
+        pandas
+        pyarrow
+        matplotlib
+        seaborn
+        plotly
+        scikit-learn
+        torch
+        pytorch-lightning
+        torchvision
+        wandb
+        tqdm
+        ray
+        networkx
+        pyvis
+        graphviz
 
-    # hydra-core
-    # omegaconf
+        # hydra-core
+        # omegaconf
 
-    praw
-    transformers
+        praw
+        transformers
 
-    jupyter
-    ipykernel
-    nbformat
+        jupyter
+        ipykernel
+        nbformat
 
-    pymongo
+        pymongo
 
-    requests
-    fastapi
-    uvicorn
+        requests
+        fastapi
+        uvicorn
 
-    pwntools
+        pwntools
 
-    black
-    isort
-  ]);
-in
-{
-  home.packages = with pkgs; [
-    # rust
+        black
+        isort
+      ]))
+  ];
+
+  rustEnv = with pkgs; [
     cargo
     rustc
     rust-analyzer
@@ -65,10 +66,9 @@ in
     rustfmt
     openssl.dev
     pkg-config
+  ];
 
-
-
-    # pwn
+  pwnEnv = with pkgs; [
     ghidra-bin
     radare2
     ilspy
@@ -85,18 +85,19 @@ in
     #pwntools
 
     binwalk
+  ];
 
-
-
-    # cpp
+  cppEnv = with pkgs; [
     clang
     cmake
 
     platformio
-
-
-
-    # python
-    pythonEnv
   ];
+in
+{
+  home.packages = with pkgs; [ ]
+    ++ rustEnv
+    ++ pwnEnv
+    ++ cppEnv
+    ++ pythonEnv;
 }

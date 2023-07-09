@@ -10,10 +10,10 @@
     ./ssh.nix
     ./git.nix
     ./zsh.nix
-    #./foot.nix
     ./kitty.nix
     ./lf.nix
     ./firefox.nix
+    ./chromium.nix
     ./dev.nix
     ./scripts.nix
   ];
@@ -49,7 +49,6 @@
 
     btop
     neofetch
-    onefetch
 
     vlc
     pavucontrol

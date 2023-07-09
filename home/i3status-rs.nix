@@ -7,7 +7,7 @@
         blocks = [
           {
             block = "sound";
-            format = " $output_name $volume ";
+            format = " $output_name {$volume|MUTED} ";
             step_width = 0;
             click = [
               {

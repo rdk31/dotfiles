@@ -1,36 +1,4 @@
 {
-  "[c]": {
-    "editor.tabSize": 4
-  },
-  "[cpp]": {
-    "editor.tabSize": 4
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[rust]": {
-    "editor.tabSize": 4
-  },
-  "[python]": {
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": true
-    }
-  },
-  "[svelte]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": "active",
@@ -40,10 +8,8 @@
   "files.watcherExclude": {
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
-    "**/node_modules/*/**": true
+    "**/node_modules/**": true
   },
-  "git.autofetch": true,
-  "isort.args":["--profile", "black"],
   "python.defaultInterpreterPath": "${env:PYTHONPATH}",
   "python.formatting.provider": "black",
   "python.languageServer": "Pylance",
@@ -63,8 +29,8 @@
       "commands": ["workbench.action.quickOpen"]
     },
     {
-      "before": ["<leader>", "z"],
-      "commands": ["workbench.action.toggleZenMode"]
+      "before": ["<leader>", "q"],
+      "commands": ["workbench.action.closeWindow"]
     },
     {
       "before": ["<leader>", "p"],
@@ -76,11 +42,5 @@
   "window.zoomLevel": 1,
   "workbench.colorTheme": "One Dark",
   "workbench.editor.enablePreview": false,
-  "workbench.iconTheme": "material-icon-theme",
-  "zenMode.centerLayout": false,
-  "zenMode.fullScreen": false,
-  "zenMode.hideLineNumbers": false,
-  "zenMode.hideStatusBar": false,
-  "zenMode.hideTabs": false,
-  "editor.inlineSuggest.enabled": true
+  "workbench.iconTheme": "material-icon-theme"
 }
