@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 let
   previewer = pkgs.writeShellScript "previewer" ''
     file=$1
@@ -8,7 +8,7 @@ let
     y=$5
 
     case "$(file -Lb --mime-type "$file")" in
-      image/*) kitty +icat --silent --transfer-mode file --place "''${w}x''${h}@''${x}x''${y}" "$file"; exit 1;;
+      image/*) kitty +kitten icat --silent --stdin no --transfer-mode file --place "''${w}x''${h}@''${x}x''${y}" "$file" < /dev/null > /dev/tty; exit 1;;
       video/*) mediainfo "$file";;
       application/zip) als "$file";;
       text/*|*/xml) bat --terminal-width "$(($w-2))" -f "$file";;
@@ -17,7 +17,7 @@ let
     esac
   '';
   cleaner = pkgs.writeShellScript "cleaner" ''
-    kitty +icat --clear --silent --transfer-mode file
+    kitty +kitten icat --clear --stdin no --silent --transfer-mode file < /dev/null > /dev/tty
   '';
 in {
   programs.lf = {
@@ -34,7 +34,7 @@ in {
           set -f
           echo -n "delete \"$fx\"? [y/N] "
           read ans
-          [ $ans = "y" ] && rm -rf -- "$fx"
+          [ $ans = "y" ] && rm -rf $fx
         }}
       '';
       extract = ''
@@ -42,14 +42,14 @@ in {
           set -f
           echo -n "extract \"$fx\"? [y/N] "
           read ans
-          [ $ans = "y" ] && aunpack "$fx"
+          [ $ans = "y" ] && aunpack $fx
         }}
       '';
       open = ''
         ''${{
           case $(file --mime-type "$(readlink -f $f)" -b) in
             text/*) $EDITOR $fx;;
-            application/pdf) zathura $fx >/dev/null 2>&1 ;;
+            # application/pdf) zathura $fx >/dev/null 2>&1 ;;
             *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;
           esac
         }}
@@ -61,9 +61,9 @@ in {
       "mf" = "push :mkfile<space>";
       "D" = "delete";
       "E" = "extract";
-      "<enter>" = "$$SHELL";
+      "S" = "$$SHELL";
 
-      "gd" = "cd ~/.dotfiles";
+      "gd" = "cd ~/Downloads";
       "gh" = "cd ~";
       "gm" = "cd /run/media/rdk";
       "gt" = "cd ~/tmp";
@@ -71,9 +71,5 @@ in {
     };
   };
 
-  home.packages = with pkgs; [
-    mediainfo
-    pistol
-    atool
-  ];
+  home.packages = with pkgs; [ mediainfo pistol atool ];
 }
