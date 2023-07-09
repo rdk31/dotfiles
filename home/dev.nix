@@ -90,6 +90,10 @@ let
 
     platformio
   ];
-in {
-  home.packages = with pkgs; [ ] ++ rustEnv ++ pwnEnv ++ cppEnv ++ pythonEnv;
+in
+{
+  home.packages = with pkgs;
+    [ ] ++ rustEnv
+    #++ pwnEnv 
+    ++ cppEnv ++ pythonEnv;
 }

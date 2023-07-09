@@ -19,7 +19,8 @@ let
   cleaner = pkgs.writeShellScript "cleaner" ''
     kitty +kitten icat --clear --stdin no --silent --transfer-mode file < /dev/null > /dev/tty
   '';
-in {
+in
+{
   programs.lf = {
     enable = true;
     extraConfig = ''

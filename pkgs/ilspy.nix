@@ -1,5 +1,19 @@
-{ stdenv, lib, makeWrapper, autoPatchelfHook, coreutils, libX11, libkrb5, curl
-, lttng-ust, gtk3, openssl, icu, unzip, fetchurl, makeDesktopItem }:
+{ stdenv
+, lib
+, makeWrapper
+, autoPatchelfHook
+, coreutils
+, libX11
+, libkrb5
+, curl
+, lttng-ust
+, gtk3
+, openssl
+, icu
+, unzip
+, fetchurl
+, makeDesktopItem
+}:
 let
   libs =
     [ libX11 stdenv.cc.cc.lib libkrb5 curl lttng-ust gtk3 openssl.out icu ];
@@ -17,7 +31,8 @@ let
     categories = [ "Development" ];
     icon = "ILSpy";
   };
-in stdenv.mkDerivation rec {
+in
+stdenv.mkDerivation rec {
   pname = "ilspy";
   version = "unstable-${releaseVersion}";
   releaseVersion = "7.2-rc";

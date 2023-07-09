@@ -154,7 +154,7 @@ in {
                 } screen' resume '${pkgs.sway}/bin/swaymsg "output * dpms on"' \
                 timeout 600 '${./idle.sh} suspend' \
                 before-sleep '${./power.sh} lock'
-              '';
+      '';
     };
     Install = { WantedBy = [ "sway-session.target" ]; };
   };
