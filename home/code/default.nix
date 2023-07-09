@@ -14,11 +14,12 @@ let
     #  };
     #})
   ];
-in
-{
+in {
   programs.vscode = {
     enable = true;
     userSettings = builtins.fromJSON (builtins.readFile ./settings.json);
+    enableUpdateCheck = false;
+    enableExtensionUpdateCheck = false;
     extensions = (with pkgs.vscode-extensions; [
       ms-python.python
       ms-python.vscode-pylance
@@ -36,8 +37,5 @@ in
     ]) ++ marketplaceExtensions;
   };
 
-  home.packages = with pkgs; [
-    nixpkgs-fmt
-    mypy
-  ];
+  home.packages = with pkgs; [ nixpkgs-fmt mypy ];
 }

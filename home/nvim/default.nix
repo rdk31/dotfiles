@@ -1,5 +1,4 @@
-{ config, pkgs, ... }:
-{
+{ config, pkgs, ... }: {
   programs.neovim = {
     enable = true;
     viAlias = true;
@@ -92,9 +91,8 @@
   };
 
   # TODO: hardcoded path
-  xdg.configFile."nvim/lua".source = config.lib.file.mkOutOfStoreSymlink /home/rdk/.dotfiles/home/nvim/lua;
+  xdg.configFile."nvim/lua".source =
+    config.lib.file.mkOutOfStoreSymlink /home/rdk/.dotfiles/home/nvim/lua;
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
+  home.sessionVariables = { EDITOR = "nvim"; };
 }

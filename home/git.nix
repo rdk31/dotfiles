@@ -1,9 +1,5 @@
-{ config, pkgs, ... }:
-{
-  home.packages = with pkgs; [
-    git-lfs
-    git-crypt
-  ];
+{ config, pkgs, ... }: {
+  home.packages = with pkgs; [ git-lfs git-crypt ];
 
   programs.gpg.enable = true;
   services.gpg-agent.enable = true;
@@ -17,8 +13,6 @@
       signByDefault = true;
     };
     difftastic.enable = true;
-    extraConfig = {
-      pull.ff = "only";
-    };
+    extraConfig = { pull.ff = "only"; };
   };
 }

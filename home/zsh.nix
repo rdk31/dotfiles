@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
@@ -11,7 +10,7 @@
       enable = true;
       plugins = [ "git" "sudo" "docker" "systemd" "kubectl" "rsync" ];
     };
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting.enable = true;
     enableAutosuggestions = true;
     enableCompletion = true;
     shellAliases = {

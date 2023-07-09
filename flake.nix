@@ -12,12 +12,10 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, flake-utils, agenix, nixpkgs, nixpkgs-stable, nixos-hardware, home-manager, ... }@inputs: {
-    nixosConfigurations."xps" =
-      let
-        system = "x86_64-linux";
-      in
-      nixpkgs.lib.nixosSystem {
+  outputs = { self, flake-utils, agenix, nixpkgs, nixpkgs-stable, nixos-hardware
+    , home-manager, ... }@inputs: {
+      nixosConfigurations."xps" = let system = "x86_64-linux";
+      in nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = { inherit inputs; };
         modules = [
@@ -46,5 +44,5 @@
           agenix.nixosModules.default
         ];
       };
-  };
+    };
 }

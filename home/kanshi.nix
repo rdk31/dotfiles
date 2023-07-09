@@ -1,15 +1,12 @@
-{ config, pkgs, ...}:
-{
+{ config, pkgs, ... }: {
   services.kanshi = {
     enable = true;
     profiles = {
       undocked = {
-        outputs = [
-          {
-            criteria = "eDP-1";
-            status = "enable";
-          }
-        ];
+        outputs = [{
+          criteria = "eDP-1";
+          status = "enable";
+        }];
       };
       dockedFHD = {
         outputs = [

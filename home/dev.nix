@@ -7,15 +7,12 @@ let
       inherit pname version;
       sha256 = "sha256-pQ3HGvpdgJ51AfE10aW3l28WYl0Lv19BYTaujEbu9XU=";
     };
-    buildInputs = with pkgs.python310Packages; [
-      pymongo
-      distributed
-    ];
+    buildInputs = with pkgs.python310Packages; [ pymongo distributed ];
   };
 
   pythonEnv = [
-    (pkgs.python310.withPackages
-      (p: with p; [
+    (pkgs.python310.withPackages (p:
+      with p; [
         numpy
         dask
         dask-mongo
@@ -93,11 +90,6 @@ let
 
     platformio
   ];
-in
-{
-  home.packages = with pkgs; [ ]
-    ++ rustEnv
-    ++ pwnEnv
-    ++ cppEnv
-    ++ pythonEnv;
+in {
+  home.packages = with pkgs; [ ] ++ rustEnv ++ pwnEnv ++ cppEnv ++ pythonEnv;
 }

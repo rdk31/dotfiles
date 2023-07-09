@@ -1,8 +1,6 @@
 { config, pkgs, lib, ... }:
-let
-  mod = "Mod4";
-in
-{
+let mod = "Mod4";
+in {
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
@@ -28,7 +26,8 @@ in
     config = {
       modifier = mod;
       terminal = "kitty";
-      menu = ''bemenu-run -p "" --fn "Fira Code" --tb "#285577" --hb "#285577" --tf "#eeeeee" --hf "#eeeeee" --nf "#bbbbbb" | xargs swaymsg exec --'';
+      menu = ''
+        bemenu-run -p "" --fn "Fira Code" --tb "#285577" --hb "#285577" --tf "#eeeeee" --hf "#eeeeee" --nf "#bbbbbb" | xargs swaymsg exec --'';
 
       fonts = {
         names = [ "Fira Code" "Font Awesome 5 Free" ];
@@ -51,12 +50,8 @@ in
           #accel_profile = "flat";
           pointer_accel = "-0.5";
         };
-        "1:1:AT_Translated_Set_2_keyboard" = {
-          xkb_layout = "pl";
-        };
-        "1452:591:Keychron_Keychron_K1" = {
-          xkb_layout = "pl";
-        };
+        "1:1:AT_Translated_Set_2_keyboard" = { xkb_layout = "pl"; };
+        "1452:591:Keychron_Keychron_K1" = { xkb_layout = "pl"; };
         "1118:1896:Microsoft_Microsoft___SiderWinderTM_X4_Keyboard" = {
           xkb_layout = "pl";
         };
@@ -71,35 +66,66 @@ in
           position = "0,0";
         };
       };
-      bars = [
-        {
-          fonts = {
-            names = [ "Fira Code" "Font Awesome 5 Free" ];
-            size = 12.0;
-          };
-          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-default.toml";
-          position = "bottom";
-        }
-      ];
+      bars = [{
+        fonts = {
+          names = [ "Fira Code" "Font Awesome 5 Free" ];
+          size = 12.0;
+        };
+        statusCommand =
+          "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-default.toml";
+        position = "bottom";
+      }];
       workspaceOutputAssign = [
-        { workspace = "1"; output = "DP-3 DP-1 eDP-1"; }
-        { workspace = "2"; output = "DP-3 DP-1 eDP-1"; }
-        { workspace = "3"; output = "DP-3 DP-1 eDP-1"; }
-        { workspace = "4"; output = "DP-3 DP-1 eDP-1"; }
-        { workspace = "5"; output = "DP-3 DP-1 eDP-1"; }
-        { workspace = "6"; output = "eDP-1"; }
-        { workspace = "7"; output = "eDP-1"; }
-        { workspace = "8"; output = "eDP-1"; }
-        { workspace = "9"; output = "eDP-1"; }
-        { workspace = "10"; output = "eDP-1"; }
+        {
+          workspace = "1";
+          output = "DP-3 DP-1 eDP-1";
+        }
+        {
+          workspace = "2";
+          output = "DP-3 DP-1 eDP-1";
+        }
+        {
+          workspace = "3";
+          output = "DP-3 DP-1 eDP-1";
+        }
+        {
+          workspace = "4";
+          output = "DP-3 DP-1 eDP-1";
+        }
+        {
+          workspace = "5";
+          output = "DP-3 DP-1 eDP-1";
+        }
+        {
+          workspace = "6";
+          output = "eDP-1";
+        }
+        {
+          workspace = "7";
+          output = "eDP-1";
+        }
+        {
+          workspace = "8";
+          output = "eDP-1";
+        }
+        {
+          workspace = "9";
+          output = "eDP-1";
+        }
+        {
+          workspace = "10";
+          output = "eDP-1";
+        }
       ];
       keybindings = lib.mkOptionDefault {
         "${mod}+0" = "workspace number 10";
         "${mod}+Shift+0" = "move container to workspace number 10";
         "${mod}+Tab" = "workspace back_and_forth";
 
-        "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +5%";
-        "XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -5%";
+        "XF86AudioRaiseVolume" =
+          "exec pactl set-sink-volume @DEFAULT_SINK@ +5%";
+        "XF86AudioLowerVolume" =
+          "exec pactl set-sink-volume @DEFAULT_SINK@ -5%";
         "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
         "XF86MonBrightnessDown" = "exec ${./brightness.sh} down";
         "XF86MonBrightnessUp" = "exec ${./brightness.sh} up";
@@ -120,22 +146,23 @@ in
       #path = [ pkgs.bash ];
     };
     Service = {
-      ExecStart = ''${pkgs.swayidle}/bin/swayidle -w -d \
-        timeout 270 '${./idle.sh} lock' \
-        timeout 300 '${./idle.sh} screen' resume '${pkgs.sway}/bin/swaymsg "output * dpms on"' \
-        timeout 600 '${./idle.sh} suspend' \
-        before-sleep '${./power.sh} lock'
-      '';
+      ExecStart = ''
+        ${pkgs.swayidle}/bin/swayidle -w -d \
+                timeout 270 '${./idle.sh} lock' \
+                timeout 300 '${
+                  ./idle.sh
+                } screen' resume '${pkgs.sway}/bin/swaymsg "output * dpms on"' \
+                timeout 600 '${./idle.sh} suspend' \
+                before-sleep '${./power.sh} lock'
+              '';
     };
-    Install = {
-      WantedBy = [ "sway-session.target" ];
-    };
+    Install = { WantedBy = [ "sway-session.target" ]; };
   };
 
   services.gammastep = {
     enable = true;
     latitude = 52.13;
-    longitude = 21.00;
+    longitude = 21.0;
   };
 
   systemd.user.targets.tray = {
