@@ -12,7 +12,7 @@
     ./kitty.nix
     ./lf.nix
     ./firefox.nix
-    ./chromium.nix
+    #./chromium.nix
     ./dev.nix
     ./scripts.nix
   ];
