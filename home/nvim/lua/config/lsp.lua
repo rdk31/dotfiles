@@ -50,7 +50,7 @@ require("lspconfig").diagnosticls.setup {
       },
       isort = {
         command = "isort",
-        args = { "--quiet", "-" },
+        args = { "--quiet", "--profile", "black", "-" },
       },
     },
     formatFiletypes = {

@@ -25,6 +25,8 @@ opt.signcolumn = "yes"
 opt.hidden = true
 opt.incsearch = true
 
+vim.cmd[[colorscheme onedark]]
+
 local map = vim.api.nvim_set_keymap
 options = { noremap = true, silent = true }
 map('n', '<leader>h', ':bprevious<CR>', options)

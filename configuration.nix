@@ -44,8 +44,8 @@
   #};
 
   fonts = {
-    fonts = with pkgs; [ nerdfonts ];
-    enableDefaultFonts = true;
+    packages = with pkgs; [ nerdfonts ];
+    enableDefaultPackages = true;
   };
 
   i18n.defaultLocale = "en_US.UTF-8";

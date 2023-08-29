@@ -4,7 +4,7 @@
     viAlias = true;
     vimAlias = true;
     plugins = with pkgs.vimPlugins; [
-      onedark-vim
+      onedark-nvim
 
       nvim-web-devicons
       nvim-tree-lua
@@ -46,7 +46,6 @@
       which-key-nvim
     ];
     extraConfig = ''
-      colorscheme onedark
       lua << EOF
         require("config.general")
         require("config.bufferline")

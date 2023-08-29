@@ -24,7 +24,8 @@
     }@inputs: {
       nixosConfigurations."xps" =
         let system = "x86_64-linux";
-        in nixpkgs.lib.nixosSystem {
+        in
+        nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
