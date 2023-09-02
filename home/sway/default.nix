@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }:
 let mod = "Mod4";
-in {
+in
+{
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;

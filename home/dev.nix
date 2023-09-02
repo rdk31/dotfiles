@@ -1,23 +1,10 @@
 { pkgs, ... }:
 let
-  dask-mongo = pkgs.python310Packages.buildPythonPackage rec {
-    pname = "dask-mongo";
-    version = "2022.5.0";
-    src = pkgs.python310Packages.fetchPypi {
-      inherit pname version;
-      sha256 = "sha256-pQ3HGvpdgJ51AfE10aW3l28WYl0Lv19BYTaujEbu9XU=";
-    };
-    buildInputs = with pkgs.python310Packages; [ pymongo distributed ];
-  };
-
   pythonEnv = [
     (pkgs.python310.withPackages (p:
       with p; [
         numpy
-        dask
-        dask-mongo
         pandas
-        pyarrow
         matplotlib
         seaborn
         plotly
@@ -27,7 +14,6 @@ let
         torchvision
         wandb
         tqdm
-        ray
         networkx
         pyvis
         graphviz
@@ -35,14 +21,9 @@ let
         # hydra-core
         # omegaconf
 
-        praw
-        transformers
-
         jupyter
         ipykernel
         nbformat
-
-        pymongo
 
         requests
         python-dotenv
