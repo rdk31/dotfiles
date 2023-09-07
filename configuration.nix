@@ -121,6 +121,7 @@
       "libvirtd"
       "vboxusers"
       "dialout"
+      "wireshark"
     ];
   };
   users.defaultUserShell = pkgs.zsh;
@@ -132,6 +133,8 @@
     curl
     unzip
     wget
+
+    pciutils
 
     wireguard-tools
     pptp

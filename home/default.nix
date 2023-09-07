@@ -89,6 +89,8 @@
 
     zotero
 
+    virt-manager
+
     inputs.agenix.packages.x86_64-linux.default
     inputs.devenv.packages.x86_64-linux.devenv
   ];
