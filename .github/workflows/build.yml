@@ -10,10 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: sudo rm -rf /opt&
-      - run: sudo rm -rf /usr/share/dotnet&
-      - run: sudo rm -rf "/usr/local/share/boost"&
-      - run: sudo rm -rf "$AGENT_TOOLSDIRECTORY"&
+      - uses: jlumbroso/free-disk-space@main
 
       - uses: actions/checkout@v3
 
