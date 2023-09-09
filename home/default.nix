@@ -43,6 +43,7 @@
     #insync-v3
 
     xdg-utils
+    dconf
 
     btop
     neofetch

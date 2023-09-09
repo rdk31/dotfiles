@@ -101,14 +101,18 @@
   };
 
   hardware.bluetooth.enable = true;
-  programs.wshowkeys.enable = true;
 
   virtualisation = {
     docker.enable = true;
-    libvirtd.enable = true;
-    virtualbox.host.enable = true;
+    libvirtd = {
+      enable = true;
+      qemu.swtpm.enable = true;
+      qemu.ovmf.packages = [ pkgs.OVMFFull.fd ];
+    };
+    #virtualbox.host.enable = true;
     #virtualbox.host.enableExtensionPack = true;
   };
+  environment.sessionVariables.LIBVIRT_DEFAULT_URI = [ "qemu:///system" ];
 
   users.users.rdk = {
     isNormalUser = true;
