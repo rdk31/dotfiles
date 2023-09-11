@@ -21,9 +21,11 @@
     , nixos-hardware
     , home-manager
     , ...
-    }@inputs: {
-      nixosConfigurations."xps" =
-        let system = "x86_64-linux";
+    }@inputs:
+    let
+      xps = ciBuild:
+        let
+          system = "x86_64-linux";
         in
         nixpkgs.lib.nixosSystem {
           inherit system;
@@ -36,7 +38,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.rdk = import ./home;
-              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.extraSpecialArgs = { inherit inputs ciBuild; };
             }
             {
               nixpkgs.overlays = [
@@ -54,5 +56,11 @@
             agenix.nixosModules.default
           ];
         };
+    in
+    {
+      nixosConfigurations = {
+        "xps" = xps false;
+        "xps-ci" = xps true;
+      };
     };
 }

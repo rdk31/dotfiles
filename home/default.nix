@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }: {
+{ inputs, ciBuild, lib, pkgs, ... }: {
   imports = [
     ./nvim
     ./sway
@@ -25,76 +25,79 @@
     plugins = with pkgs.obs-studio-plugins; [ wlrobs ];
   };
 
-  home.packages = with pkgs; [
-    exa
-    bat
-    ripgrep
-    bc
-    jq
-    atool
-    file
-    bind
-    killall
-    usbutils
+  home.packages = lib.mkMerge (with pkgs; [
+    [
+      exa
+      bat
+      ripgrep
+      bc
+      jq
+      atool
+      file
+      bind
+      killall
+      usbutils
 
-    rsync
-    rclone
-    lftp
-    #insync-v3
+      rsync
+      rclone
+      lftp
+      #insync-v3
 
-    xdg-utils
-    dconf
+      xdg-utils
+      dconf
 
-    btop
-    neofetch
+      btop
+      neofetch
 
-    vlc
-    pavucontrol
-    pulsemixer
-    networkmanagerapplet
-    gimp
+      vlc
+      pavucontrol
+      pulsemixer
+      networkmanagerapplet
+      gimp
 
-    discord
-    signal-desktop
-    #teams
-    zoom-us
+      discord
+      signal-desktop
+      #teams
+      zoom-us
 
-    jdk
+      jdk
 
-    spotify
+      spotify
 
-    kicad
+      relion
 
-    relion
+      remmina
 
-    remmina
+      postman
+      docker-compose
 
-    postman
-    docker-compose
+      mongodb-compass
+      mongodb-tools
 
-    mongodb-compass
-    mongodb-tools
+      networkmanagerapplet
 
-    networkmanagerapplet
+      prismlauncher
 
-    prismlauncher
+      gnome.adwaita-icon-theme
 
-    gnome.adwaita-icon-theme
+      anki-bin
 
-    anki-bin
+      yubikey-manager
+      yubikey-manager-qt
 
-    yubikey-manager
-    yubikey-manager-qt
+      lazygit
 
-    lazygit
+      zotero
 
-    zotero
+      virt-manager
 
-    virt-manager
-
-    inputs.agenix.packages.x86_64-linux.default
-    inputs.devenv.packages.x86_64-linux.devenv
-  ];
+      inputs.agenix.packages.x86_64-linux.default
+      inputs.devenv.packages.x86_64-linux.devenv
+    ]
+    (lib.mkIf (!ciBuild) [
+      kicad
+    ])
+  ]);
 
   programs.home-manager.enable = true;
 
