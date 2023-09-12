@@ -14,6 +14,7 @@
   };
 
   boot.supportedFilesystems = [ "ntfs" ];
+  boot.binfmt.emulatedSystems = [ "armv6l-linux" ];
 
   boot.extraModprobeConfig = ''
     options hid_apple fnmode=2
