@@ -27,7 +27,7 @@
 
   home.packages = lib.mkMerge (with pkgs; [
     [
-      exa
+      eza
       bat
       ripgrep
       bc
@@ -67,6 +67,8 @@
       relion
 
       remmina
+
+      kdenlive
 
       postman
       docker-compose

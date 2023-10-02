@@ -14,7 +14,7 @@
     enableAutosuggestions = true;
     enableCompletion = true;
     shellAliases = {
-      ls = "exa";
+      ls = "eza";
       grep = "grep --color=auto";
       cal = "cal -m";
       lg = "lazygit";
