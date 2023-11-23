@@ -70,7 +70,7 @@
 
       kdenlive
 
-      postman
+      #postman
       docker-compose
 
       mongodb-compass
