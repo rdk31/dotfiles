@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
-  pythonEnv = [
-    (pkgs.python310.withPackages (p:
+  pythonEnv = with pkgs; [
+    (python310.withPackages (p:
       with p; [
         numpy
         pandas
@@ -17,9 +17,12 @@ let
         networkx
         pyvis
         graphviz
+        opencv4
+        scikit-image
+        nltk
 
-        # hydra-core
-        # omegaconf
+        hydra-core
+        omegaconf
 
         jupyter
         ipykernel
@@ -35,6 +38,7 @@ let
         black
         isort
       ]))
+    poetry
   ];
 
   rustEnv = with pkgs; [

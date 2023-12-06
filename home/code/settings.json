@@ -42,5 +42,6 @@
   "window.zoomLevel": 1,
   "workbench.colorTheme": "One Dark",
   "workbench.editor.enablePreview": false,
-  "workbench.iconTheme": "material-icon-theme"
+  "workbench.iconTheme": "material-icon-theme",
+  "remote.SSH.configFile": "/run/agenix/ssh-config"
 }
