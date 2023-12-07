@@ -45,6 +45,7 @@ let
     cargo
     rustc
     rust-analyzer
+    rust-script
     clippy
     rustfmt
     openssl.dev

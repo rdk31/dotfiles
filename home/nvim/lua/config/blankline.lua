@@ -1,6 +1,6 @@
-require('indent_blankline').setup{
-  use_treesitter = true,
-  show_first_indent_level = false,
+require('ibl').setup{
+  -- use_treesitter = true,
+  -- show_first_indent_level = false,
 
  -- show_current_context = true,
 	--context_patterns = {
@@ -15,5 +15,5 @@ require('indent_blankline').setup{
 	--	"if_statement",
 	--	"with_statement",
 	--},
-	filetype_exclude = { "NvimTree" },
+	exclude = { buftypes = { "NvimTree" }, },
 }

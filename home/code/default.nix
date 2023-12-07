@@ -24,6 +24,7 @@ in
     extensions = (with pkgs.vscode-extensions; [
       ms-python.python
       ms-python.vscode-pylance
+      ms-python.black-formatter
       #matangover.mypy
       jnoortheen.nix-ide
       matklad.rust-analyzer
