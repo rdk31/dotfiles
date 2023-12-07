@@ -4,6 +4,9 @@
   "editor.guides.bracketPairs": "active",
   "editor.lineNumbers": "relative",
   "editor.tabSize": 2,
+  "[python]": {
+    "editor.tabSize": 4
+  },
   "files.enableTrash": false,
   "files.watcherExclude": {
     "**/.git/objects/**": true,
