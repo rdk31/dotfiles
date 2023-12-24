@@ -27,7 +27,7 @@
       popup-nvim
       plenary-nvim
       nvim-treesitter.withAllGrammars
-      nvim-ts-rainbow
+      rainbow-delimiters-nvim
       bufferline-nvim
 
       nvim-autopairs
