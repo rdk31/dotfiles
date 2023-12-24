@@ -13,6 +13,6 @@
       signByDefault = true;
     };
     difftastic.enable = true;
-    extraConfig = { pull.ff = "only"; };
+    #extraConfig = { pull.ff = "only"; };
   };
 }

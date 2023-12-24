@@ -169,6 +169,7 @@
     };
     settings = {
       auto-optimise-store = true;
+      trusted-users = [ "@wheel" ];
       substituters =
         [ "https://rdk31-dotfiles.cachix.org" "https://colmena.cachix.org" ];
       trusted-public-keys = [
