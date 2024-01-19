@@ -20,6 +20,7 @@ let
         opencv4
         scikit-image
         nltk
+        filterpy
 
         hydra-core
         omegaconf
@@ -50,6 +51,7 @@ let
     rustfmt
     openssl.dev
     pkg-config
+    cargo-generate
   ];
 
   pwnEnv = with pkgs; [

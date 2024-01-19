@@ -1,18 +1,18 @@
 { config, pkgs, lib, ... }:
 let
   marketplaceExtensions = [
-    #(pkgs.vscode-utils.buildVscodeMarketplaceExtension {
-    #  mktplcRef = {
-    #    name = "copilot";
-    #    publisher = "GitHub";
-    #    version = "1.44.6735";
-    #    sha256 = "sha256-8Z16yfG4I6TpzzKUm6xLSEr6NT//pEjfW5+biC4G+4M=";
-    #  };
+    # (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
+    #   mktplcRef = {
+    #     name = "platformio-ide";
+    #     publisher = "platformio";
+    #     version = "3.3.2";
+    #     sha256 = "sha256-qYlhCioa3LiI67iubC1XQatY5JaeGLT26Q1Q1TWBczo=";
+    #   };
 
-    #  meta = {
-    #    license = lib.licenses.unfree;
-    #  };
-    #})
+    #   meta = {
+    #     license = lib.licenses.asl20;
+    #   };
+    # })
   ];
 in
 {

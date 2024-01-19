@@ -30,7 +30,8 @@
     networkmanager.enable = true;
 
     useDHCP = false;
-    extraHosts = "";
+    extraHosts = ''
+    '';
   };
 
   #nixpkgs.config.packageOverrides = pkgs: rec {
@@ -153,7 +154,10 @@
   ];
   programs.zsh.enable = true;
 
-  services.udev.packages = with pkgs; [ saleae-logic-2 ];
+  services.udev.packages = with pkgs; [
+    saleae-logic-2
+    platformio-core
+  ];
 
   nix = {
     package = pkgs.nixVersions.stable;

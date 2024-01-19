@@ -55,7 +55,11 @@
       networkmanagerapplet
       gimp
 
-      discord
+      (discord.override {
+        withOpenASAR = true;
+        withVencord = true;
+      })
+      vesktop
       signal-desktop
       #teams
       zoom-us
@@ -63,8 +67,6 @@
       jdk
 
       spotify
-
-      relion
 
       remmina
 
@@ -98,6 +100,7 @@
     ]
     (lib.mkIf (!ciBuild) [
       kicad
+      relion
     ])
   ]);
 
