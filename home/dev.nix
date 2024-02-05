@@ -9,10 +9,10 @@ let
         seaborn
         plotly
         scikit-learn
-        #torch
-        #pytorch-lightning
-        #torchvision
-        #wandb
+        torch
+        pytorch-lightning
+        torchvision
+        wandb
         tqdm
         networkx
         pyvis
