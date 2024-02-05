@@ -39,5 +39,5 @@ in
     ]) ++ marketplaceExtensions;
   };
 
-  home.packages = with pkgs; [ nixpkgs-fmt mypy ];
+  home.packages = with pkgs; [ nixpkgs-fmt ];
 }

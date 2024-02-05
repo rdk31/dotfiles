@@ -40,6 +40,8 @@
       duf
       tldr
 
+      nix-du
+
       rsync
       rclone
       lftp
@@ -92,6 +94,8 @@
       yubikey-manager-qt
 
       lazygit
+
+      #openrocket
 
       zotero
 
