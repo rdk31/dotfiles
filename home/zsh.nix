@@ -18,6 +18,7 @@
       grep = "grep --color=auto";
       cal = "cal -m";
       lg = "lazygit";
+      df = "duf";
     };
     initExtra = ''
       export RUST_SRC_PATH="${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";

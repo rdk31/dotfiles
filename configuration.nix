@@ -146,6 +146,7 @@
     pptp
 
     cifs-utils
+    sshfs
 
     # opencl
     clinfo
@@ -192,6 +193,7 @@
   '';
 
   services.udisks2.enable = true;
+  programs.fuse.userAllowOther = true;
 
   security.pam.services.swaylock = {
     text = ''

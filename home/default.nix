@@ -37,6 +37,8 @@
       bind
       killall
       usbutils
+      duf
+      tldr
 
       rsync
       rclone
