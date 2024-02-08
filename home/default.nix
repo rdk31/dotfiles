@@ -95,7 +95,7 @@
 
       lazygit
 
-      #openrocket
+      openrocket
 
       zotero
 
