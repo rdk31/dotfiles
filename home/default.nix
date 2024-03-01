@@ -47,6 +47,9 @@
       lftp
       #insync-v3
 
+      gdown
+      yt-dlp
+
       xdg-utils
       dconf
 
@@ -57,7 +60,10 @@
       pavucontrol
       pulsemixer
       networkmanagerapplet
+
       gimp
+      pinta
+      blender
 
       (discord.override {
         withOpenASAR = true;

@@ -13,6 +13,13 @@ let
       application/zip) als "$file";;
       text/*|*/xml) bat --terminal-width "$(($w-2))" -f "$file";;
       application/json) cat "$file" | jq -C;;
+      application/pdf)
+        filename=$(basename $(echo "$file" | tr ' ' '_'))
+        if [[ ! -f "/tmp/$filename.png" ]]; then
+          pdftoppm -f 1 -l 1 "$file" >> "/tmp/$filename.png"
+        fi
+        kitty +kitten icat --silent --stdin no --transfer-mode file --place "''${w}x''${h}@''${x}x''${y}" "/tmp/$filename.png" < /dev/null > /dev/tty
+        exit 1;;
       *) pistol "$file";;
     esac
   '';
@@ -72,5 +79,5 @@ in
     };
   };
 
-  home.packages = with pkgs; [ mediainfo pistol atool ];
+  home.packages = with pkgs; [ mediainfo pistol atool poppler_utils ];
 }
