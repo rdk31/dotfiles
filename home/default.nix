@@ -65,6 +65,8 @@
       pinta
       blender
 
+      libreoffice
+
       (discord.override {
         withOpenASAR = true;
         withVencord = true;
