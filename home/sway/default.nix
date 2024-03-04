@@ -27,9 +27,7 @@ in
     config = {
       modifier = mod;
       terminal = "kitty";
-      menu = ''
-        bemenu-run -p "" --fn "Fira Code" --tb "#285577" --hb "#285577" --tf "#eeeeee" --hf "#eeeeee" --nf "#bbbbbb" | xargs swaymsg exec --'';
-
+      menu = "${pkgs.wofi}/bin/wofi --show drun --allow-images --gtk-dark";
       fonts = {
         names = [ "Fira Code" "Font Awesome 5 Free" ];
         size = 12.0;
@@ -190,5 +188,6 @@ in
     swayidle
     swaylock
     udiskie
+    wofi
   ];
 }

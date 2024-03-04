@@ -109,6 +109,10 @@
 
       virt-manager
 
+      lunarvim
+
+      xorg.xhost
+
       inputs.agenix.packages.x86_64-linux.default
       inputs.devenv.packages.x86_64-linux.devenv
     ]
