@@ -77,9 +77,6 @@
       rust-analyzer
       rustfmt
 
-      # nix
-      rnix-lsp
-
       # telescope
       ripgrep
       fd

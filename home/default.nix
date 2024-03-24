@@ -64,6 +64,7 @@
       gimp
       pinta
       blender
+      geeqie
 
       libreoffice
 
@@ -73,7 +74,7 @@
       })
       vesktop
       signal-desktop
-      #teams
+      teams-for-linux
       zoom-us
 
       jdk
@@ -106,6 +107,7 @@
       openrocket
 
       zotero
+      zola
 
       virt-manager
 
@@ -114,7 +116,7 @@
       xorg.xhost
 
       inputs.agenix.packages.x86_64-linux.default
-      inputs.devenv.packages.x86_64-linux.devenv
+      devenv
     ]
     (lib.mkIf (!ciBuild) [
       kicad

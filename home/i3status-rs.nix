@@ -22,6 +22,7 @@
               "bluez_output.00_02_3C_65_96_A4.1" = "MUVO 1C";
               "alsa_output.usb-SteelSeries_Siberia_V2_Illuminated_000000000000-00.analog-stereo" =
                 "SIBERIA";
+              "bluez_output.6C_B1_33_84_41_3F.1" = "AIR PODS";
             };
           }
           {

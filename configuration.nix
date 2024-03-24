@@ -84,6 +84,8 @@
     upower.enable = true;
     thermald.enable = true;
     tlp.enable = true;
+
+    fprintd.enable = lib.mkForce false;
   };
 
   security.rtkit.enable = true;

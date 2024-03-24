@@ -11,7 +11,7 @@
       plugins = [ "git" "sudo" "docker" "systemd" "kubectl" "rsync" ];
     };
     syntaxHighlighting.enable = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     enableCompletion = true;
     shellAliases = {
       ls = "eza";
