@@ -13,7 +13,7 @@
     ./lf.nix
     ./firefox.nix
     #./chromium.nix
-    ./dev.nix
+    #./dev.nix
     ./scripts.nix
   ];
 
