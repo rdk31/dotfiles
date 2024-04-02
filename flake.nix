@@ -7,7 +7,12 @@
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
     home-manager.url = "github:nix-community/home-manager";
 
+    nix-matlab = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "gitlab:doronbehar/nix-matlab";
+    };
     agenix.url = "github:ryantm/agenix";
+
     flake-utils.url = "github:numtide/flake-utils";
   };
 
@@ -15,6 +20,7 @@
     { self
     , flake-utils
     , agenix
+    , nix-matlab
     , nixpkgs
     , nixpkgs-stable
     , nixos-hardware

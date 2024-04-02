@@ -25,6 +25,10 @@
     plugins = with pkgs.obs-studio-plugins; [ wlrobs ];
   };
 
+  xdg.configFile."matlab/nix.sh".text = ''
+    INSTALL_DIR=$HOME/.local/share/matlab
+  '';
+
   home.packages = lib.mkMerge (with pkgs; [
     [
       eza
@@ -115,7 +119,10 @@
 
       xorg.xhost
 
+      bambu-studio
+
       inputs.agenix.packages.x86_64-linux.default
+      inputs.nix-matlab.packages.x86_64-linux.matlab
       devenv
     ]
     (lib.mkIf (!ciBuild) [
