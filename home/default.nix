@@ -113,6 +113,8 @@
       zotero
       zola
 
+      obsidian
+
       virt-manager
 
       lunarvim
@@ -120,10 +122,13 @@
       xorg.xhost
 
       bambu-studio
+      freecad
 
       inputs.agenix.packages.x86_64-linux.default
       inputs.nix-matlab.packages.x86_64-linux.matlab
       devenv
+
+      python3
     ]
     (lib.mkIf (!ciBuild) [
       kicad
