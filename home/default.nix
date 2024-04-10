@@ -1,6 +1,6 @@
 { inputs, ciBuild, lib, pkgs, ... }: {
   imports = [
-    ./nvim
+    ./nvim.nix
     ./sway
     ./i3status-rs.nix
     ./kanshi.nix
