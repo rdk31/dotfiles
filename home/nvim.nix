@@ -1,4 +1,4 @@
-{ config, inputs, ... }:
+{ inputs, ... }:
 {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
@@ -20,6 +20,8 @@
       shiftwidth = 2;
       tabstop = 2;
       expandtab = true;
+      autoindent = true;
+      smartindent = true;
       signcolumn = "yes";
     };
 

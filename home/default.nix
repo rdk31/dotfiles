@@ -4,7 +4,7 @@
     ./sway
     ./i3status-rs.nix
     ./kanshi.nix
-    ./tmux
+    ./tmux.nix
     ./code
     ./ssh.nix
     ./git.nix
