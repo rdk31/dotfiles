@@ -58,7 +58,6 @@
       dconf
 
       btop
-      neofetch
 
       vlc
       pavucontrol
