@@ -77,7 +77,7 @@
       })
       vesktop
       signal-desktop
-      # teams-for-linux
+      teams-for-linux
       zoom-us
 
       jdk
@@ -112,7 +112,7 @@
       zotero
       zola
 
-      # obsidian
+      obsidian
 
       virt-manager
 
