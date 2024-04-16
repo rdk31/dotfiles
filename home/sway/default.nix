@@ -22,7 +22,7 @@ in
       include ${./recording}
 
       exec mkfifo /tmp/wobpipe
-      exec_always "tail -f /tmp/wobpipe | wob -a bottom -a right --padding 2 --margin 10 --border 2 --height 25 --width 200"
+      exec_always "tail -f /tmp/wobpipe | wob"
     '';
     config = {
       modifier = mod;
@@ -70,8 +70,7 @@ in
           names = [ "Fira Code" "Font Awesome 5 Free" ];
           size = 12.0;
         };
-        statusCommand =
-          "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-default.toml";
+        statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-default.toml";
         position = "bottom";
       }];
       workspaceOutputAssign = [
@@ -136,6 +135,15 @@ in
       };
     };
   };
+
+  xdg.configFile."wob/wob.ini".text = ''
+    anchor = bottom right
+    bar_padding = 2
+    margin = 10
+    border_size = 2
+    height = 25
+    width = 200
+  '';
 
   systemd.user.services.swayidle = {
     Unit = {
