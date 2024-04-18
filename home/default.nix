@@ -126,6 +126,8 @@
       devenv
 
       python3
+
+      mosh
     ]
     (lib.mkIf (!ciBuild) [
       kicad
