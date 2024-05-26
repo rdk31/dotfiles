@@ -14,7 +14,6 @@
     "**/node_modules/**": true
   },
   "python.defaultInterpreterPath": "${env:PYTHONPATH}",
-  "python.formatting.provider": "black",
   "python.languageServer": "Pylance",
   "telemetry.telemetryLevel": "off",
   "vim.leader": "<space>",
@@ -46,5 +45,6 @@
   "workbench.colorTheme": "One Dark",
   "workbench.editor.enablePreview": false,
   "workbench.iconTheme": "material-icon-theme",
-  "remote.SSH.configFile": "/run/agenix/ssh-config"
+  "remote.SSH.configFile": "/run/agenix/ssh-config",
+  "github.copilot.editor.enableAutoCompletions": true
 }
