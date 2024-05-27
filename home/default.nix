@@ -119,6 +119,8 @@
       xorg.xhost
 
       bambu-studio
+      orca-slicer
+      lychee-slicer
       freecad
 
       inputs.agenix.packages.x86_64-linux.default

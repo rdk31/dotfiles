@@ -1,15 +1,17 @@
 { config, pkgs, ... }: {
   services.kanshi = {
     enable = true;
-    profiles = {
-      undocked = {
-        outputs = [{
+    settings = [
+      {
+        profile.name = "undocked";
+        profile.outputs = [{
           criteria = "eDP-1";
           status = "enable";
         }];
-      };
-      dockedFHD = {
-        outputs = [
+      }
+      {
+        profile.name = "dockedFHD";
+        profile.outputs = [
           {
             criteria = "eDP-1";
             position = "1920,0";
@@ -21,10 +23,11 @@
             status = "enable";
           }
         ];
-        exec = [ "${pkgs.sway}/bin/swaymsg workspace 6, workspace 1" ];
-      };
-      docked2K = {
-        outputs = [
+        profile.exec = [ "${pkgs.sway}/bin/swaymsg workspace 6, workspace 1" ];
+      }
+      {
+        profile.name = "docked2K";
+        profile.outputs = [
           {
             criteria = "eDP-1";
             position = "2560,480";
@@ -36,10 +39,11 @@
             status = "enable";
           }
         ];
-        exec = [ "${pkgs.sway}/bin/swaymsg workspace 6, workspace 1" ];
-      };
-      unknown = {
-        outputs = [
+        profile.exec = [ "${pkgs.sway}/bin/swaymsg workspace 6, workspace 1" ];
+      }
+      {
+        profile.name = "unknown";
+        profile.outputs = [
           {
             criteria = "eDP-1";
             status = "enable";
@@ -49,7 +53,7 @@
             status = "enable";
           }
         ];
-      };
-    };
+      }
+    ];
   };
 }
