@@ -27,7 +27,7 @@ in
       ms-python.black-formatter
       #matangover.mypy
       jnoortheen.nix-ide
-      matklad.rust-analyzer
+      rust-lang.rust-analyzer
       vscodevim.vim
       mskelton.one-dark-theme
       pkief.material-icon-theme

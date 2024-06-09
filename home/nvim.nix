@@ -66,7 +66,7 @@
             installCargo = false;
             installRustc = false;
           };
-          nil_ls.enable = true;
+          nil-ls.enable = true;
         };
       };
       rust-tools.enable = true;
