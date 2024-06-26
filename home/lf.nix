@@ -38,8 +38,7 @@ in
       mkdir = ''$mkdir -p "$(echo $*)"'';
       mkfile = ''$touch "$(echo $*)"'';
       delete = ''
-        %{{
-          set -f
+        ''${{
           echo -n "delete \"$fx\"? [y/N] "
           read ans
           [ $ans = "y" ] && rm -rf $fx
@@ -70,6 +69,7 @@ in
       "D" = "delete";
       "E" = "extract";
       "S" = "$$SHELL";
+      "<enter>" = "open";
 
       "gd" = "cd ~/Downloads";
       "gh" = "cd ~";

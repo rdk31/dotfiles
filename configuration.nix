@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }: {
+{ pkgs, lib, ... }: {
   imports = [ ./hardware-configuration.nix ];
 
   boot.loader.systemd-boot.enable = true;
@@ -95,18 +95,20 @@
   xdg.portal.wlr.enable = true;
   xdg.portal.config.common.default = "*";
 
-  hardware.opengl = {
-    enable = true;
-    extraPackages = with pkgs; [
-      intel-media-driver
-      intel-compute-runtime
-      vaapiIntel
-      vaapiVdpau
-      libvdpau-va-gl
-    ];
-  };
+  hardware = {
+    opengl = {
+      enable = true;
+      extraPackages = with pkgs; [
+        intel-media-driver
+        intel-compute-runtime
+        vaapiIntel
+        vaapiVdpau
+        libvdpau-va-gl
+      ];
+    };
 
-  hardware.bluetooth.enable = true;
+    bluetooth.enable = true;
+  };
 
   virtualisation = {
     docker.enable = true;

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
   services.kanshi = {
     enable = true;
     settings = [
@@ -30,12 +30,12 @@
         profile.outputs = [
           {
             criteria = "eDP-1";
-            position = "2560,480";
+            position = "0,0";
             status = "enable";
           }
           {
             criteria = "Dell Inc. DELL S2721DGF 8LBQ023";
-            position = "0,0";
+            position = "1536,0";
             status = "enable";
           }
         ];

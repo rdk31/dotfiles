@@ -10,9 +10,10 @@
     ./git.nix
     ./zsh.nix
     ./kitty.nix
-    ./lf.nix
+    #./lf.nix
+    ./ranger.nix
     ./firefox.nix
-    #./chromium.nix
+    ./chromium.nix
     #./dev.nix
     ./scripts.nix
   ];

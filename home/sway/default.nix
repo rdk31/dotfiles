@@ -1,5 +1,6 @@
-{ config, pkgs, lib, ... }:
-let mod = "Mod4";
+{ pkgs, lib, ... }:
+let
+  mod = "Mod4";
 in
 {
   wayland.windowManager.sway = {
@@ -16,13 +17,14 @@ in
       export XDG_CURRENT_DESKTOP=sway
     '';
     extraConfig = ''
+      exec ${pkgs.sway-audio-idle-inhibit}/bin/sway-audio-idle-inhibit
+
       bindswitch --reload --locked lid:toggle exec ${./lid.sh}
       exec_always ${./lid.sh}
 
       include ${./recording}
 
-      exec mkfifo /tmp/wobpipe
-      exec_always "tail -f /tmp/wobpipe | wob"
+      exec "mkfifo /tmp/wobpipe && tail -f /tmp/wobpipe | wob"
     '';
     config = {
       modifier = mod;
@@ -74,46 +76,16 @@ in
         position = "bottom";
       }];
       workspaceOutputAssign = [
-        {
-          workspace = "1";
-          output = "DP-3 DP-1 eDP-1";
-        }
-        {
-          workspace = "2";
-          output = "DP-3 DP-1 eDP-1";
-        }
-        {
-          workspace = "3";
-          output = "DP-3 DP-1 eDP-1";
-        }
-        {
-          workspace = "4";
-          output = "DP-3 DP-1 eDP-1";
-        }
-        {
-          workspace = "5";
-          output = "DP-3 DP-1 eDP-1";
-        }
-        {
-          workspace = "6";
-          output = "eDP-1";
-        }
-        {
-          workspace = "7";
-          output = "eDP-1";
-        }
-        {
-          workspace = "8";
-          output = "eDP-1";
-        }
-        {
-          workspace = "9";
-          output = "eDP-1";
-        }
-        {
-          workspace = "10";
-          output = "eDP-1";
-        }
+        { workspace = "1"; output = "DP-3 DP-1 eDP-1"; }
+        { workspace = "2"; output = "DP-3 DP-1 eDP-1"; }
+        { workspace = "3"; output = "DP-3 DP-1 eDP-1"; }
+        { workspace = "4"; output = "DP-3 DP-1 eDP-1"; }
+        { workspace = "5"; output = "DP-3 DP-1 eDP-1"; }
+        { workspace = "6"; output = "eDP-1"; }
+        { workspace = "7"; output = "eDP-1"; }
+        { workspace = "8"; output = "eDP-1"; }
+        { workspace = "9"; output = "eDP-1"; }
+        { workspace = "10"; output = "eDP-1"; }
       ];
       keybindings = lib.mkOptionDefault {
         "${mod}+0" = "workspace number 10";
@@ -145,26 +117,23 @@ in
     width = 200
   '';
 
-  systemd.user.services.swayidle = {
-    Unit = {
-      Description = "Idle Manager for Wayland";
-      Documentation = [ "man:swayidle(1)" ];
-      PartOf = [ "graphical-session.target" ];
-      #path = [ pkgs.bash ];
-    };
-    Service = {
-      ExecStart = ''
-        ${pkgs.swayidle}/bin/swayidle -w -d \
-                timeout 270 '${./idle.sh} lock' \
-                timeout 300 '${
-                  ./idle.sh
-                } screen' resume '${pkgs.sway}/bin/swaymsg "output * dpms on"' \
-                timeout 600 '${./idle.sh} suspend' \
-                before-sleep '${./power.sh} lock'
-      '';
-    };
-    Install = { WantedBy = [ "sway-session.target" ]; };
+  services.swayidle = {
+    enable = true;
+    events = [
+      { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock -fc 000000"; }
+      { event = "lock"; command = "${pkgs.swaylock}/bin/swaylock -fc 000000"; }
+      { event = "after-resume"; command = "${pkgs.sway}/bin/swaymsg \"output * power on\""; }
+    ];
+    timeouts = [
+      { timeout = 300; command = "${pkgs.swaylock}/bin/swaylock -fc 000000"; }
+      {
+        timeout = 600;
+        command = "${pkgs.sway}/bin/swaymsg \"output * power off\"";
+        resumeCommand = "${pkgs.sway}/bin/swaymsg \"output * power on\"";
+      }
+    ];
   };
+  systemd.user.services.swayidle.Service.Environment = lib.mkAfter [ "WAYLAND_DISPLAY='wayland-1'" ];
 
   services.gammastep = {
     enable = true;
@@ -172,12 +141,6 @@ in
     longitude = 21.0;
   };
 
-  systemd.user.targets.tray = {
-    Unit = {
-      Description = "Home Manager System Tray";
-      Requires = [ "graphical-session-pre.target" ];
-    };
-  };
   services.udiskie.enable = true;
 
   services.mako = {
@@ -186,9 +149,10 @@ in
   };
 
   home.packages = with pkgs; [
-    sway-contrib.grimshot
-    wl-clipboard
-    wf-recorder
+    sway-contrib.grimshot # screenshots
+    wl-clipboard # vim copy
+    wf-recorder # screen recording
+    slurp # screen recording
     bemenu
     brightnessctl
     wob
