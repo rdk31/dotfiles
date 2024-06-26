@@ -1,15 +1,15 @@
 # https://codeberg.org/jeyj0/dotfiles/src/branch/main/packages/lychee-slicer/default.nix
-
-{ lib
-, stdenv
-, pkgs
-, appimageTools
-, makeDesktopItem
-, copyDesktopItems
-, gsettings-desktop-schemas
-, gtk3
-, fetchurl
-, ...
+{
+  lib,
+  stdenv,
+  pkgs,
+  appimageTools,
+  makeDesktopItem,
+  copyDesktopItems,
+  gsettings-desktop-schemas,
+  gtk3,
+  fetchurl,
+  ...
 }:
 let
   version = "6.0.2";
@@ -24,24 +24,25 @@ appimageTools.wrapType2 {
 
   src = appImage;
 
-  nativeBuildInputs = [
-    copyDesktopItems
-  ];
+  nativeBuildInputs = [ copyDesktopItems ];
 
   profile = ''
     export LC_ALL=C.UTF-8
     export XDG_DATA_DIRS="${gsettings-desktop-schemas}/share/gsettings-schemas/${gsettings-desktop-schemas.name}:${gtk3}/share/gsettings-schemas/${gtk3.name}:$XDG_DATA_DIRS"
   '';
 
-  extraPkgs = pkgs: (appimageTools.defaultFhsEnvArgs.multiPkgs pkgs) ++ (with pkgs; [
-    # fixes "unexpected error"
-    gsettings-desktop-schemas
-    glib
-    gtk3
+  extraPkgs =
+    pkgs:
+    (appimageTools.defaultFhsEnvArgs.multiPkgs pkgs)
+    ++ (with pkgs; [
+      # fixes "unexpected error"
+      gsettings-desktop-schemas
+      glib
+      gtk3
 
-    # needed for icons
-    gnome.adwaita-icon-theme
-  ]);
+      # needed for icons
+      gnome.adwaita-icon-theme
+    ]);
 
   # desktopItems = [
   #   (makeDesktopItem {
@@ -57,4 +58,3 @@ appimageTools.wrapType2 {
     homepage = "https://mango3d.io/";
   };
 }
-

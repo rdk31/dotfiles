@@ -34,8 +34,11 @@
       enable = true;
       formatOnSave = { };
       formattersByFt = {
-        nix = [ "alejandra" "nixfmt" "nixpkgs_fmt" ];
-        python = [ "isort" "black" ];
+        nix = [ "nixfmt" ];
+        python = [
+          "isort"
+          "black"
+        ];
       };
     };
     cmp = {

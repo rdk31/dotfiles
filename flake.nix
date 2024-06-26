@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
     home-manager.url = "github:nix-community/home-manager";
 
@@ -21,89 +21,98 @@
   };
 
   outputs =
-    { self
-    , flake-parts
-    , agenix
-    , nix-matlab
-    , nixvim
-    , nixpkgs
-    , nixpkgs-stable
-    , nixos-hardware
-    , home-manager
-    , ...
+    {
+      self,
+      flake-parts,
+      agenix,
+      nix-matlab,
+      nixvim,
+      nixpkgs,
+      nixpkgs-stable,
+      nixos-hardware,
+      home-manager,
+      ...
     }@inputs:
-    flake-parts.lib.mkFlake { inherit inputs; } ({ withSystem, ... }: {
-      flake =
-        let
-          xps = ciBuild:
-            withSystem "x86_64-linux" ({ config, system, ... }:
-              nixpkgs.lib.nixosSystem {
-                inherit system;
-                specialArgs = { inherit inputs; };
-                modules = [
-                  nixos-hardware.nixosModules.dell-xps-13-9310
-                  ./configuration.nix
-                  home-manager.nixosModules.home-manager
-                  {
-                    home-manager.useGlobalPkgs = true;
-                    home-manager.useUserPackages = true;
-                    home-manager.users.rdk = import ./home;
-                    home-manager.extraSpecialArgs = {
-                      packages = config.packages;
-                      inherit inputs ciBuild;
-                    };
-                  }
-                  {
-                    nixpkgs.overlays = [
-                      (import ./pkgs)
-                      (final: prev: {
-                        nixpkgs-stable = import nixpkgs-stable {
-                          inherit system;
-                          config.allowUnfree = true;
-                        };
-                      })
-                    ];
-                    nixpkgs.config.allowUnfree = true;
-                    nix.registry.nixpkgs.flake = nixpkgs;
-                  }
-                  agenix.nixosModules.default
-                ];
-              });
-        in
-        {
-          nixosConfigurations = {
-            "xps" = xps false;
-            "xps-ci" = xps true;
-          };
-        };
-
-      systems = [
-        "x86_64-linux"
-        "aarch64-linux"
-        "x86_64-darwin"
-        "aarch64-darwin"
-      ];
-
-      perSystem =
-        { pkgs, system, ... }:
-        let
-          nixvimLib = nixvim.lib.${system};
-          nixvim' = nixvim.legacyPackages.${system};
-          nixvimModule = {
-            inherit pkgs;
-            module = import ./nvim;
-          };
-          nvim = nixvim'.makeNixvimWithModule nixvimModule;
-        in
-        {
-          checks = {
-            default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
+    flake-parts.lib.mkFlake { inherit inputs; } (
+      { withSystem, ... }:
+      {
+        flake =
+          let
+            xps =
+              ciBuild:
+              withSystem "x86_64-linux" (
+                { config, system, ... }:
+                nixpkgs.lib.nixosSystem {
+                  inherit system;
+                  specialArgs = {
+                    inherit inputs;
+                  };
+                  modules = [
+                    nixos-hardware.nixosModules.dell-xps-13-9310
+                    ./configuration.nix
+                    home-manager.nixosModules.home-manager
+                    {
+                      home-manager.useGlobalPkgs = true;
+                      home-manager.useUserPackages = true;
+                      home-manager.users.rdk = import ./home;
+                      home-manager.extraSpecialArgs = {
+                        packages = config.packages;
+                        inherit inputs ciBuild;
+                      };
+                    }
+                    {
+                      nixpkgs.overlays = [
+                        (import ./pkgs)
+                        (final: prev: {
+                          nixpkgs-stable = import nixpkgs-stable {
+                            inherit system;
+                            config.allowUnfree = true;
+                          };
+                        })
+                      ];
+                      nixpkgs.config.allowUnfree = true;
+                      nix.registry.nixpkgs.flake = nixpkgs;
+                    }
+                    agenix.nixosModules.default
+                  ];
+                }
+              );
+          in
+          {
+            nixosConfigurations = {
+              "xps" = xps false;
+              "xps-ci" = xps true;
+            };
           };
 
-          packages = {
-            default = nvim;
-            nvim = nvim;
+        systems = [
+          "x86_64-linux"
+          "aarch64-linux"
+          "x86_64-darwin"
+          "aarch64-darwin"
+        ];
+
+        perSystem =
+          { pkgs, system, ... }:
+          let
+            nixvimLib = nixvim.lib.${system};
+            nixvim' = nixvim.legacyPackages.${system};
+            nixvimModule = {
+              inherit pkgs;
+              module = import ./nvim;
+            };
+            nvim = nixvim'.makeNixvimWithModule nixvimModule;
+          in
+          {
+            checks = {
+              default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
+            };
+
+            packages = {
+              default = nvim;
+              nvim = nvim;
+            };
           };
-        };
-    });
+      }
+    );
 }

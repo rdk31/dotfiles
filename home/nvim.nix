@@ -1,4 +1,4 @@
-{ packages, ... }:
+{ pkgs, packages, ... }:
 {
   # programs.neovim = {
   #   enable = true;
@@ -11,9 +11,15 @@
   #   package = pkgs.neovim;
   # };
 
-
-  home.packages = [
+  home.packages = with pkgs; [
     packages.nvim
+
+    nixfmt-rfc-style
+    nil
+
+    pyright
+    black
+    isort
   ];
 
   home.sessionVariables.EDITOR = "nvim";

@@ -1,8 +1,8 @@
 { pkgs, ... }:
 let
   pythonEnv = with pkgs; [
-    (python310.withPackages (p:
-      with p; [
+    (python310.withPackages (
+      p: with p; [
         numpy
         pandas
         matplotlib
@@ -38,7 +38,8 @@ let
 
         black
         isort
-      ]))
+      ]
+    ))
     poetry
   ];
 
@@ -81,8 +82,11 @@ let
   ];
 in
 {
-  home.packages = with pkgs;
-    [ ] ++ rustEnv
-    #++ pwnEnv 
-    ++ cppEnv ++ pythonEnv;
+  home.packages =
+    with pkgs;
+    [ ]
+    ++ rustEnv
+    #++ pwnEnv
+    ++ cppEnv
+    ++ pythonEnv;
 }

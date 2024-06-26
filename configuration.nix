@@ -1,4 +1,5 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
   imports = [ ./hardware-configuration.nix ];
 
   boot.loader.systemd-boot.enable = true;
@@ -15,13 +16,20 @@
   };
 
   boot.supportedFilesystems = [ "ntfs" ];
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" "armv6l-linux" ];
+  boot.binfmt.emulatedSystems = [
+    "aarch64-linux"
+    "armv6l-linux"
+  ];
 
   boot.extraModprobeConfig = ''
     options hid_apple fnmode=2
   '';
 
-  fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
+  fileSystems."/".options = [
+    "noatime"
+    "nodiratime"
+    "discard"
+  ];
 
   time.timeZone = "Europe/Warsaw";
   time.hardwareClockInLocalTime = true;
@@ -31,8 +39,7 @@
     networkmanager.enable = true;
 
     useDHCP = false;
-    extraHosts = ''
-    '';
+    extraHosts = '''';
   };
 
   #nixpkgs.config.packageOverrides = pkgs: rec {
@@ -96,7 +103,7 @@
   xdg.portal.config.common.default = "*";
 
   hardware = {
-    opengl = {
+    graphics = {
       enable = true;
       extraPackages = with pkgs; [
         intel-media-driver
@@ -181,8 +188,10 @@
     settings = {
       auto-optimise-store = true;
       trusted-users = [ "@wheel" ];
-      substituters =
-        [ "https://rdk31-dotfiles.cachix.org" "https://colmena.cachix.org" ];
+      substituters = [
+        "https://rdk31-dotfiles.cachix.org"
+        "https://colmena.cachix.org"
+      ];
       trusted-public-keys = [
         "rdk31-dotfiles.cachix.org-1:Q2QZ31Iw2z9r7DqzxgnXoEQ86JTU8NxCDCv5BTRcYXI="
         "colmena.cachix.org-1:7BzpDnjjH8ki2CT3f6GdOk7QAzPOl+1t3LvTLXqYcSg="
@@ -221,4 +230,3 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.11"; # Did you read the comment?
 }
-

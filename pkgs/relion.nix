@@ -1,4 +1,16 @@
-{ stdenv, fetchFromGitHub, cmake, mpi, ghostscript, fftw, fftwFloat, fltk, xorg, libtiff, libpng }:
+{
+  stdenv,
+  fetchFromGitHub,
+  cmake,
+  mpi,
+  ghostscript,
+  fftw,
+  fftwFloat,
+  fltk,
+  xorg,
+  libtiff,
+  libpng,
+}:
 stdenv.mkDerivation rec {
   name = "relion-${version}";
   version = "4.0.1";
@@ -12,9 +24,7 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [ cmake ];
 
-  cmakeFlags = [
-    "-DFETCH_TORCH_MODELS=OFF"
-  ];
+  cmakeFlags = [ "-DFETCH_TORCH_MODELS=OFF" ];
 
   buildInputs = [
     mpi

@@ -31,7 +31,10 @@ in
       terminal = "kitty";
       menu = "${pkgs.wofi}/bin/wofi --show drun --allow-images --gtk-dark";
       fonts = {
-        names = [ "Fira Code" "Font Awesome 5 Free" ];
+        names = [
+          "Fira Code"
+          "Font Awesome 5 Free"
+        ];
         size = 12.0;
       };
       gaps = {
@@ -51,8 +54,12 @@ in
           #accel_profile = "flat";
           pointer_accel = "-0.5";
         };
-        "1:1:AT_Translated_Set_2_keyboard" = { xkb_layout = "pl"; };
-        "1452:591:Keychron_Keychron_K1" = { xkb_layout = "pl"; };
+        "1:1:AT_Translated_Set_2_keyboard" = {
+          xkb_layout = "pl";
+        };
+        "1452:591:Keychron_Keychron_K1" = {
+          xkb_layout = "pl";
+        };
         "1118:1896:Microsoft_Microsoft___SiderWinderTM_X4_Keyboard" = {
           xkb_layout = "pl";
         };
@@ -67,35 +74,68 @@ in
           position = "0,0";
         };
       };
-      bars = [{
-        fonts = {
-          names = [ "Fira Code" "Font Awesome 5 Free" ];
-          size = 12.0;
-        };
-        statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-default.toml";
-        position = "bottom";
-      }];
+      bars = [
+        {
+          fonts = {
+            names = [
+              "Fira Code"
+              "Font Awesome 5 Free"
+            ];
+            size = 12.0;
+          };
+          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-default.toml";
+          position = "bottom";
+        }
+      ];
       workspaceOutputAssign = [
-        { workspace = "1"; output = "DP-3 DP-1 eDP-1"; }
-        { workspace = "2"; output = "DP-3 DP-1 eDP-1"; }
-        { workspace = "3"; output = "DP-3 DP-1 eDP-1"; }
-        { workspace = "4"; output = "DP-3 DP-1 eDP-1"; }
-        { workspace = "5"; output = "DP-3 DP-1 eDP-1"; }
-        { workspace = "6"; output = "eDP-1"; }
-        { workspace = "7"; output = "eDP-1"; }
-        { workspace = "8"; output = "eDP-1"; }
-        { workspace = "9"; output = "eDP-1"; }
-        { workspace = "10"; output = "eDP-1"; }
+        {
+          workspace = "1";
+          output = "DP-3 DP-1 eDP-1";
+        }
+        {
+          workspace = "2";
+          output = "DP-3 DP-1 eDP-1";
+        }
+        {
+          workspace = "3";
+          output = "DP-3 DP-1 eDP-1";
+        }
+        {
+          workspace = "4";
+          output = "DP-3 DP-1 eDP-1";
+        }
+        {
+          workspace = "5";
+          output = "DP-3 DP-1 eDP-1";
+        }
+        {
+          workspace = "6";
+          output = "eDP-1";
+        }
+        {
+          workspace = "7";
+          output = "eDP-1";
+        }
+        {
+          workspace = "8";
+          output = "eDP-1";
+        }
+        {
+          workspace = "9";
+          output = "eDP-1";
+        }
+        {
+          workspace = "10";
+          output = "eDP-1";
+        }
       ];
       keybindings = lib.mkOptionDefault {
         "${mod}+0" = "workspace number 10";
         "${mod}+Shift+0" = "move container to workspace number 10";
         "${mod}+Tab" = "workspace back_and_forth";
 
-        "XF86AudioRaiseVolume" =
-          "exec pactl set-sink-volume @DEFAULT_SINK@ +5%";
-        "XF86AudioLowerVolume" =
-          "exec pactl set-sink-volume @DEFAULT_SINK@ -5%";
+        "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +5%";
+        "XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -5%";
         "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
         "XF86MonBrightnessDown" = "exec ${./brightness.sh} down";
         "XF86MonBrightnessUp" = "exec ${./brightness.sh} up";
@@ -120,12 +160,24 @@ in
   services.swayidle = {
     enable = true;
     events = [
-      { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock -fc 000000"; }
-      { event = "lock"; command = "${pkgs.swaylock}/bin/swaylock -fc 000000"; }
-      { event = "after-resume"; command = "${pkgs.sway}/bin/swaymsg \"output * power on\""; }
+      {
+        event = "before-sleep";
+        command = "${pkgs.swaylock}/bin/swaylock -fc 000000";
+      }
+      {
+        event = "lock";
+        command = "${pkgs.swaylock}/bin/swaylock -fc 000000";
+      }
+      {
+        event = "after-resume";
+        command = "${pkgs.sway}/bin/swaymsg \"output * power on\"";
+      }
     ];
     timeouts = [
-      { timeout = 300; command = "${pkgs.swaylock}/bin/swaylock -fc 000000"; }
+      {
+        timeout = 300;
+        command = "${pkgs.swaylock}/bin/swaylock -fc 000000";
+      }
       {
         timeout = 600;
         command = "${pkgs.sway}/bin/swaymsg \"output * power off\"";

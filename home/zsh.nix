@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
@@ -8,7 +9,12 @@
     autocd = true;
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "sudo" "docker" "systemd" "kubectl" "rsync" ];
+      plugins = [
+        "git"
+        "sudo"
+        "docker"
+        "rsync"
+      ];
     };
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;

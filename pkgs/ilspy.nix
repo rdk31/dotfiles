@@ -1,25 +1,33 @@
-{ stdenv
-, lib
-, makeWrapper
-, autoPatchelfHook
-, coreutils
-, libX11
-, libkrb5
-, curl
-, lttng-ust
-, gtk3
-, openssl
-, icu
-, unzip
-, fetchurl
-, makeDesktopItem
+{
+  stdenv,
+  lib,
+  makeWrapper,
+  autoPatchelfHook,
+  coreutils,
+  libX11,
+  libkrb5,
+  curl,
+  lttng-ust,
+  gtk3,
+  openssl,
+  icu,
+  unzip,
+  fetchurl,
+  makeDesktopItem,
 }:
 let
-  libs =
-    [ libX11 stdenv.cc.cc.lib libkrb5 curl lttng-ust gtk3 openssl.out icu ];
+  libs = [
+    libX11
+    stdenv.cc.cc.lib
+    libkrb5
+    curl
+    lttng-ust
+    gtk3
+    openssl.out
+    icu
+  ];
   icon = fetchurl {
-    url =
-      "https://raw.githubusercontent.com/icsharpcode/AvaloniaILSpy/113ef114015d2e75309d53ccbd98a5910acaade2/ILSpy/ILSpy.ico";
+    url = "https://raw.githubusercontent.com/icsharpcode/AvaloniaILSpy/113ef114015d2e75309d53ccbd98a5910acaade2/ILSpy/ILSpy.ico";
     sha256 = "sha256-amBWs/JxuVaA6rFMkP4aPui9M142CRw0hD6J/lt5ViU=";
   };
   desktopItem = makeDesktopItem {
@@ -49,11 +57,13 @@ stdenv.mkDerivation rec {
 
   sourceRoot = ".";
 
-  buildInputs = [ makeWrapper unzip ] ++ libs;
+  buildInputs = [
+    makeWrapper
+    unzip
+  ] ++ libs;
 
   src = fetchurl {
-    url =
-      "https://github.com/icsharpcode/AvaloniaILSpy/releases/download/v${releaseVersion}/linux.x64.Release.zip";
+    url = "https://github.com/icsharpcode/AvaloniaILSpy/releases/download/v${releaseVersion}/linux.x64.Release.zip";
     sha256 = "sha256-rSAvazsUwF+Bv5mMjQvM045xjnWdw+iaDYE1A7ygvQg=";
   };
 

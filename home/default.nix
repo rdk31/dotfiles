@@ -1,4 +1,11 @@
-{ inputs, ciBuild, lib, pkgs, ... }: {
+{
+  inputs,
+  ciBuild,
+  lib,
+  pkgs,
+  ...
+}:
+{
   imports = [
     ./nvim.nix
     ./sway
@@ -11,7 +18,7 @@
     ./zsh.nix
     ./kitty.nix
     #./lf.nix
-    ./ranger.nix
+    ./ranger
     ./firefox.nix
     ./chromium.nix
     #./dev.nix
@@ -30,113 +37,116 @@
     INSTALL_DIR=$HOME/.local/share/matlab
   '';
 
-  home.packages = lib.mkMerge (with pkgs; [
+  home.packages = lib.mkMerge (
+    with pkgs;
     [
-      eza
-      bat
-      ripgrep
-      bc
-      jq
-      atool
-      file
-      bind
-      killall
-      usbutils
-      duf
-      tldr
+      [
+        eza
+        bat
+        ripgrep
+        bc
+        jq
+        atool
+        file
+        bind
+        killall
+        usbutils
+        duf
+        tldr
 
-      nix-du
+        nix-du
 
-      rsync
-      rclone
-      lftp
-      #insync-v3
+        rsync
+        rclone
+        lftp
+        #insync-v3
 
-      gdown
-      yt-dlp
+        gdown
+        yt-dlp
 
-      xdg-utils
-      dconf
+        xdg-utils
+        dconf
 
-      btop
+        btop
 
-      vlc
-      pavucontrol
-      pulsemixer
-      networkmanagerapplet
+        vlc
+        pavucontrol
+        pulsemixer
+        networkmanagerapplet
 
-      gimp
-      pinta
-      blender
-      geeqie
+        gimp
+        pinta
+        blender
+        geeqie
 
-      libreoffice
+        libreoffice
 
-      (discord.override {
-        withOpenASAR = true;
-        withVencord = true;
-      })
-      vesktop
-      signal-desktop
-      teams-for-linux
-      zoom-us
+        (discord.override {
+          withOpenASAR = true;
+          withVencord = true;
+        })
+        vesktop
+        signal-desktop
+        teams-for-linux
+        zoom-us
 
-      jdk
+        jdk
 
-      spotify
+        spotify
 
-      remmina
+        remmina
 
-      kdenlive
+        kdenlive
 
-      #postman
-      docker-compose
+        #postman
+        docker-compose
 
-      mongodb-compass
-      mongodb-tools
+        mongodb-compass
+        mongodb-tools
 
-      networkmanagerapplet
+        networkmanagerapplet
 
-      prismlauncher
+        prismlauncher
 
-      gnome.adwaita-icon-theme
+        gnome.adwaita-icon-theme
 
-      anki-bin
+        anki-bin
 
-      yubikey-manager
-      yubikey-manager-qt
+        yubikey-manager
+        yubikey-manager-qt
 
-      lazygit
+        lazygit
 
-      openrocket
+        openrocket
 
-      zotero
-      zola
+        zotero
+        zola
 
-      obsidian
+        obsidian
 
-      virt-manager
+        virt-manager
 
-      xorg.xhost
+        xorg.xhost
 
-      bambu-studio
-      orca-slicer
-      lychee-slicer
-      freecad
+        bambu-studio
+        orca-slicer
+        lychee-slicer
+        freecad
 
-      inputs.agenix.packages.x86_64-linux.default
-      inputs.nix-matlab.packages.x86_64-linux.matlab
-      devenv
+        inputs.agenix.packages.x86_64-linux.default
+        inputs.nix-matlab.packages.x86_64-linux.matlab
+        devenv
 
-      python3
+        python3
 
-      mosh
+        mosh
+      ]
+      (lib.mkIf (!ciBuild) [
+        kicad-small
+        #relion
+      ])
     ]
-    (lib.mkIf (!ciBuild) [
-      kicad
-      relion
-    ])
-  ]);
+  );
 
   programs.home-manager.enable = true;
 

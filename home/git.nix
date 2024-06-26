@@ -1,5 +1,9 @@
-{ config, pkgs, ... }: {
-  home.packages = with pkgs; [ git-lfs git-crypt ];
+{ config, pkgs, ... }:
+{
+  home.packages = with pkgs; [
+    git-lfs
+    git-crypt
+  ];
 
   programs.git = {
     enable = true;

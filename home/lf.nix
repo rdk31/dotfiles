@@ -79,5 +79,10 @@ in
     };
   };
 
-  home.packages = with pkgs; [ mediainfo pistol atool poppler_utils ];
+  home.packages = with pkgs; [
+    mediainfo
+    pistol
+    atool
+    poppler_utils
+  ];
 }
