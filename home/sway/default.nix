@@ -24,7 +24,7 @@ in
 
       include ${./recording}
 
-      exec "mkfifo /tmp/wobpipe && tail -f /tmp/wobpipe | wob"
+      exec "mkfifo /tmp/wobpipe; tail -f /tmp/wobpipe | wob"
     '';
     config = {
       modifier = mod;

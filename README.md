@@ -8,7 +8,5 @@
 
 - setting up: luks lvm
 - closed lid start
-- vivado/vitis ide
-- lf multiple files
 - modules: https://github.com/mstrangfeld/nixos-configuration
 - backups
