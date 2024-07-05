@@ -15,7 +15,10 @@
       url = "gitlab:doronbehar/nix-matlab";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    agenix.url = "github:ryantm/agenix";
+
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+
+    ragenix.url = "github:yaxitech/ragenix";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
   };
@@ -24,7 +27,8 @@
     {
       self,
       flake-parts,
-      agenix,
+      ragenix,
+      nix-vscode-extensions,
       nix-matlab,
       nixvim,
       nixpkgs,
@@ -68,12 +72,13 @@
                             inherit system;
                             config.allowUnfree = true;
                           };
+                          nix-vscode-extensions = nix-vscode-extensions.extensions.${system};
                         })
                       ];
                       nixpkgs.config.allowUnfree = true;
                       nix.registry.nixpkgs.flake = nixpkgs;
                     }
-                    agenix.nixosModules.default
+                    ragenix.nixosModules.default
                   ];
                 }
               );

@@ -133,7 +133,7 @@
         lychee-slicer
         freecad
 
-        inputs.agenix.packages.x86_64-linux.default
+        inputs.ragenix.packages.x86_64-linux.default
         inputs.nix-matlab.packages.x86_64-linux.matlab
         devenv
 
