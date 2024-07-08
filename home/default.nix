@@ -108,7 +108,7 @@
 
         prismlauncher
 
-        gnome.adwaita-icon-theme
+        adwaita-icon-theme
 
         anki-bin
 

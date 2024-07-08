@@ -202,6 +202,7 @@
         "rdk31-dotfiles.cachix.org-1:Q2QZ31Iw2z9r7DqzxgnXoEQ86JTU8NxCDCv5BTRcYXI="
         "colmena.cachix.org-1:7BzpDnjjH8ki2CT3f6GdOk7QAzPOl+1t3LvTLXqYcSg="
       ];
+      fallback = true;
     };
   };
 

@@ -41,7 +41,7 @@ appimageTools.wrapType2 {
       gtk3
 
       # needed for icons
-      gnome.adwaita-icon-theme
+      adwaita-icon-theme
     ]);
 
   # desktopItems = [
