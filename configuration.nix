@@ -1,9 +1,14 @@
-{ pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   imports = [ ./hardware-configuration.nix ];
 
   boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 2;
+  boot.loader.systemd-boot.configurationLimit = 1;
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.initrd.luks.devices = {
@@ -30,6 +35,14 @@
     "nodiratime"
     "discard"
   ];
+
+  fileSystems."/mnt/home" = {
+    device = "//home/rdk";
+    fsType = "cifs";
+    options = [
+      "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,user,users,credentials=${config.age.secrets.smb-home.path},uid=1000,gid=100"
+    ];
+  };
 
   time.timeZone = "Europe/Warsaw";
   time.hardwareClockInLocalTime = true;
@@ -209,6 +222,18 @@
   services.tailscale.enable = true;
   networking.firewall.checkReversePath = "loose";
 
+  # for thunar
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs.xfce; [
+      thunar-archive-plugin
+      thunar-volman
+    ];
+  };
+  services.gvfs.enable = true; # Mount, trash, and other functionalities
+  services.tumbler.enable = true; # Thumbnail support for images
+  programs.xfconf.enable = true;
+
   services.getty.autologinUser = "rdk";
   environment.loginShellInit = ''
     [[ "$(tty)" == /dev/tty1 ]] && sway
@@ -227,6 +252,10 @@
   age.secrets.ssh-config = {
     owner = "rdk";
     file = secrets/ssh-config.age;
+  };
+  age.secrets.smb-home = {
+    owner = "rdk";
+    file = secrets/smb-home.age;
   };
 
   # This value determines the NixOS release from which the default

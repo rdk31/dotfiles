@@ -21,10 +21,10 @@
         ms-toolsai.jupyter-renderers
         ms-vscode.cpptools
         ms-vscode-remote.remote-ssh
-        github.copilot
+        #github.copilot
       ]
     );
   };
 
-  home.packages = with pkgs; [ nixpkgs-fmt ];
+  home.packages = with pkgs; [ nixfmt-rfc-style ];
 }

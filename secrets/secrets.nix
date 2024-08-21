@@ -8,4 +8,9 @@ in
     rdk
     xps
   ];
+
+  "smb-home.age".publicKeys = [
+    rdk
+    xps
+  ];
 }

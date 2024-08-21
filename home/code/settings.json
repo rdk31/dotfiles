@@ -15,6 +15,7 @@
   },
   "python.defaultInterpreterPath": "${env:PYTHONPATH}",
   "python.languageServer": "Pylance",
+  "nix.formatterPath": "nixfmt",
   "telemetry.telemetryLevel": "off",
   "vim.leader": "<space>",
   "vim.normalModeKeyBindingsNonRecursive": [
@@ -45,6 +46,5 @@
   "workbench.colorTheme": "One Dark",
   "workbench.editor.enablePreview": false,
   "workbench.iconTheme": "material-icon-theme",
-  "remote.SSH.configFile": "/run/agenix/ssh-config",
-  "github.copilot.editor.enableAutoCompletions": true
+  "remote.SSH.configFile": "/run/agenix/ssh-config"
 }
