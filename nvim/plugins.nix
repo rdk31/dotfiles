@@ -32,13 +32,19 @@
     rust-tools.enable = true;
     conform-nvim = {
       enable = true;
-      formatOnSave = { };
-      formattersByFt = {
-        nix = [ "nixfmt" ];
-        python = [
-          "isort"
-          "black"
-        ];
+      settings = {
+        format_on_save = {
+          lspFallback = true;
+          timeoutMs = 500;
+        };
+        notify_on_error = true;
+        formattersByFt = {
+          nix = [ "nixfmt" ];
+          python = [
+            "isort"
+            "black"
+          ];
+        };
       };
     };
     cmp = {
