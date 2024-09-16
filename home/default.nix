@@ -139,6 +139,8 @@
 
         python3
 
+        platformio
+
         mosh
       ]
       (lib.mkIf (!ciBuild) [

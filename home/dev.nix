@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
   pythonEnv = with pkgs; [
-    (python310.withPackages (
+    (python311.withPackages (
       p: with p; [
         numpy
         pandas
@@ -25,9 +25,9 @@ let
         hydra-core
         omegaconf
 
-        #jupyter
-        #ipykernel
-        #nbformat
+        jupyter
+        ipykernel
+        nbformat
 
         requests
         python-dotenv
@@ -40,7 +40,7 @@ let
         isort
       ]
     ))
-    poetry
+    #poetry
   ];
 
   rustEnv = with pkgs; [
@@ -85,8 +85,8 @@ in
   home.packages =
     with pkgs;
     [ ]
-    ++ rustEnv
+    #++ rustEnv
     #++ pwnEnv
-    ++ cppEnv
+    #++ cppEnv
     ++ pythonEnv;
 }

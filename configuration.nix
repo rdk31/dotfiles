@@ -183,7 +183,7 @@
 
   services.udev.packages = with pkgs; [
     saleae-logic-2
-    platformio-core
+    platformio-core.udev
   ];
 
   nix = {

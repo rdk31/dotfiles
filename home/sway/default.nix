@@ -172,6 +172,10 @@ in
         event = "after-resume";
         command = "${pkgs.sway}/bin/swaymsg \"output * power on\"";
       }
+      {
+        event = "unlock";
+        command = "${./lid.sh}";
+      }
     ];
     timeouts = [
       {

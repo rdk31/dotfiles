@@ -26,7 +26,10 @@
             status = "enable";
           }
         ];
-        profile.exec = [ "${pkgs.sway}/bin/swaymsg workspace 6, workspace 1" ];
+        profile.exec = [
+          "${pkgs.sway}/bin/swaymsg workspace 6, workspace 1"
+          "${./sway/lid.sh}"
+        ];
       }
       {
         profile.name = "docked2K";
@@ -42,7 +45,10 @@
             status = "enable";
           }
         ];
-        profile.exec = [ "${pkgs.sway}/bin/swaymsg workspace 6, workspace 1" ];
+        profile.exec = [
+          "${pkgs.sway}/bin/swaymsg workspace 6, workspace 1"
+          "${./sway/lid.sh}"
+        ];
       }
       {
         profile.name = "unknown";
