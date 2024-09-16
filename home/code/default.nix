@@ -19,7 +19,7 @@
         pkief.material-icon-theme
         ms-toolsai.jupyter
         ms-toolsai.jupyter-renderers
-        ms-vscode.cpptools
+        #ms-vscode.cpptools
         ms-vscode-remote.remote-ssh
         #github.copilot
       ]
