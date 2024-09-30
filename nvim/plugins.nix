@@ -13,6 +13,7 @@
       };
     };
     treesitter.enable = true;
+    web-devicons.enable = true;
     barbar.enable = true;
     lualine.enable = true;
     nvim-autopairs.enable = true;
@@ -38,7 +39,7 @@
           timeoutMs = 500;
         };
         notify_on_error = true;
-        formattersByFt = {
+        formatters_by_ft = {
           nix = [ "nixfmt" ];
           python = [
             "isort"

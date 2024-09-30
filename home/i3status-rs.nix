@@ -36,7 +36,7 @@
             ];
             mappings = {
               "alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__Speaker__sink" = "XPS";
-              "alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp_3__sink" = "HDMI";
+              "alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__HDMI1__sink" = "HDMI";
               "alsa_output.usb-C-Media_Electronics_Inc._USB_Audio_Device-00.analog-stereo" = "DOCK";
               "bluez_output.00_02_3C_65_96_A4.1" = "MUVO 1C";
               "alsa_output.usb-SteelSeries_Siberia_V2_Illuminated_000000000000-00.analog-stereo" = "SIBERIA";

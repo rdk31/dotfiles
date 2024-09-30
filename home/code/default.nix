@@ -12,6 +12,7 @@
         ms-python.vscode-pylance
         ms-python.black-formatter
         #matangover.mypy
+        redhat.vscode-yaml
         jnoortheen.nix-ide
         rust-lang.rust-analyzer
         vscodevim.vim

@@ -141,6 +141,8 @@
 
         platformio
 
+        imhex
+
         mosh
       ]
       (lib.mkIf (!ciBuild) [
