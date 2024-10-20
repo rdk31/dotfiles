@@ -117,7 +117,7 @@
 
         lazygit
 
-        openrocket
+        #openrocket
 
         zotero
         zola
@@ -129,9 +129,9 @@
         xorg.xhost
 
         bambu-studio
-        orca-slicer
+        #orca-slicer
         lychee-slicer
-        freecad
+        #freecad
 
         inputs.ragenix.packages.x86_64-linux.default
         inputs.nix-matlab.packages.x86_64-linux.matlab
@@ -141,12 +141,12 @@
 
         platformio
 
-        imhex
+        #imhex
 
         mosh
       ]
       (lib.mkIf (!ciBuild) [
-        kicad-small
+        #kicad-small
         #relion
       ])
     ]
