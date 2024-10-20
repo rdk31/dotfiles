@@ -22,12 +22,12 @@
       enable = true;
       servers = {
         pyright.enable = true;
-        rust-analyzer = {
+        rust_analyzer = {
           enable = true;
           installCargo = false;
           installRustc = false;
         };
-        nil-ls.enable = true;
+        nil_ls.enable = true;
       };
     };
     rust-tools.enable = true;
