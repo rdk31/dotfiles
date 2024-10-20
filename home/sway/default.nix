@@ -54,19 +54,9 @@ in
           #accel_profile = "flat";
           pointer_accel = "-0.5";
         };
-        "1:1:AT_Translated_Set_2_keyboard" = {
+        "*" = {
           xkb_layout = "pl";
         };
-        "1452:591:Keychron_Keychron_K1" = {
-          xkb_layout = "pl";
-        };
-        "1118:1896:Microsoft_Microsoft___SiderWinderTM_X4_Keyboard" = {
-          xkb_layout = "pl";
-        };
-        # crashes firefox on sway reload
-        #"*" = {
-        #  xkb_layout = "pl";
-        #};
       };
       output = {
         "eDP-1" = {
