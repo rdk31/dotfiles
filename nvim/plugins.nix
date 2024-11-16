@@ -22,15 +22,15 @@
       enable = true;
       servers = {
         pyright.enable = true;
-        rust_analyzer = {
-          enable = true;
-          installCargo = false;
-          installRustc = false;
-        };
+        #rust_analyzer = {
+        #  enable = true;
+        #  installCargo = false;
+        #  installRustc = false;
+        #};
         nil_ls.enable = true;
       };
     };
-    rust-tools.enable = true;
+    rustaceanvim.enable = true;
     conform-nvim = {
       enable = true;
       settings = {

@@ -138,6 +138,7 @@
         devenv
 
         python3
+        conda
 
         platformio
 
