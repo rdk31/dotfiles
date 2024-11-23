@@ -86,6 +86,7 @@
           withVencord = true;
         })
         vesktop
+        slack
         signal-desktop
         teams-for-linux
         zoom-us

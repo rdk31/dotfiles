@@ -6,7 +6,7 @@
     enableUpdateCheck = false;
     enableExtensionUpdateCheck = false;
     extensions = (
-      with pkgs.nix-vscode-extensions.vscode-marketplace;
+      with (pkgs.nix-vscode-extensions.forVSCodeVersion pkgs.vscode.version).vscode-marketplace;
       [
         ms-python.python
         ms-python.vscode-pylance
