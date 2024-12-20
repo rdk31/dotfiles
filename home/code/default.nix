@@ -11,18 +11,15 @@
         ms-python.python
         ms-python.vscode-pylance
         ms-python.black-formatter
-        #matangover.mypy
         redhat.vscode-yaml
         jnoortheen.nix-ide
-        rust-lang.rust-analyzer
         vscodevim.vim
         mskelton.one-dark-theme
         pkief.material-icon-theme
         ms-toolsai.jupyter
         ms-toolsai.jupyter-renderers
-        #ms-vscode.cpptools
         ms-vscode-remote.remote-ssh
-        #github.copilot
+        github.copilot
       ]
     );
   };

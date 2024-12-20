@@ -52,24 +52,9 @@
     networkmanager.enable = true;
 
     useDHCP = false;
-    extraHosts = '''';
   };
 
-  #nixpkgs.config.packageOverrides = pkgs: rec {
-  #  wpa_supplicant = pkgs.wpa_supplicant.overrideAttrs (attrs: {
-  #    #patches = attrs.patches ++ [ ./eduroam.patch ];
-  #    #extraConfig = builtins.replaceStrings [ "CONFIG_TLSV11=y" "CONFIG_TLSV12=y" ] [ "CONFIG_TLSV11=n" "CONFIG_TLSV12=n" ] attrs.extraConfig;
-  #    extraConfig = attrs.extraConfig + ''
-  #      undefine CONFIG_TLSV11
-  #      undefine CONFIG_TLSV12
-  #    '';
-  #  });
-  #};
-
-  fonts = {
-    packages = with pkgs; [ nerdfonts ];
-    enableDefaultPackages = true;
-  };
+  fonts.enableDefaultPackages = true;
 
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
@@ -130,17 +115,7 @@
     bluetooth.enable = true;
   };
 
-  virtualisation = {
-    docker.enable = true;
-    libvirtd = {
-      enable = true;
-      qemu.swtpm.enable = true;
-      qemu.ovmf.packages = [ pkgs.OVMFFull.fd ];
-    };
-    #virtualbox.host.enable = true;
-    #virtualbox.host.enableExtensionPack = true;
-  };
-  environment.sessionVariables.LIBVIRT_DEFAULT_URI = [ "qemu:///system" ];
+  virtualisation.docker.enable = true;
 
   users.users.rdk = {
     isNormalUser = true;
@@ -150,8 +125,6 @@
       "adm"
       "networkmanager"
       "docker"
-      "libvirtd"
-      "vboxusers"
       "dialout"
       "wireshark"
     ];
@@ -182,7 +155,6 @@
   programs.zsh.enable = true;
 
   services.udev.packages = with pkgs; [
-    saleae-logic-2
     platformio-core.udev
   ];
 

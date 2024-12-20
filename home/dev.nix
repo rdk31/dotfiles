@@ -19,8 +19,6 @@ let
         graphviz
         opencv4
         scikit-image
-        nltk
-        filterpy
 
         hydra-core
         omegaconf
@@ -34,44 +32,11 @@ let
         fastapi
         uvicorn
 
-        pwntools
-
         black
         isort
+        uv
       ]
     ))
-    #poetry
-  ];
-
-  rustEnv = with pkgs; [
-    cargo
-    rustc
-    rust-analyzer
-    rust-script
-    clippy
-    rustfmt
-    openssl.dev
-    pkg-config
-    cargo-generate
-  ];
-
-  pwnEnv = with pkgs; [
-    ghidra-bin
-    radare2
-    ilspy
-
-    hashcat
-
-    nmap
-    wireshark
-    saleae-logic-2
-
-    burpsuite
-
-    pwndbg
-    #pwntools
-
-    binwalk
   ];
 
   cppEnv = with pkgs; [
@@ -84,9 +49,11 @@ in
 {
   home.packages =
     with pkgs;
-    [ ]
-    #++ rustEnv
-    #++ pwnEnv
-    #++ cppEnv
+    [
+      devenv
+      lazygit
+      docker-compose
+    ]
+    ++ cppEnv
     ++ pythonEnv;
 }

@@ -18,8 +18,6 @@
     nil
 
     pyright
-    black
-    isort
   ];
 
   home.sessionVariables.EDITOR = "nvim";

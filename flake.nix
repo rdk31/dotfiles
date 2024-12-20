@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
     home-manager.url = "github:nix-community/home-manager";
 
@@ -15,6 +15,8 @@
       url = "gitlab:doronbehar/nix-matlab";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
@@ -32,7 +34,6 @@
       flake-parts,
       ragenix,
       nix-vscode-extensions,
-      nix-matlab,
       nixvim,
       nixpkgs,
       nixpkgs-stable,

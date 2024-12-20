@@ -19,10 +19,7 @@
     ./kitty.nix
     #./lf.nix
     ./ranger
-    ./firefox.nix
-    ./chromium.nix
-    #./dev.nix
-    ./scripts.nix
+    ./dev.nix
   ];
 
   programs.direnv.enable = true;
@@ -54,12 +51,8 @@
         duf
         tldr
 
-        nix-du
-
         rsync
         rclone
-        lftp
-        #insync-v3
 
         gdown
         yt-dlp
@@ -88,22 +81,8 @@
         vesktop
         slack
         signal-desktop
-        teams-for-linux
-        zoom-us
-
-        jdk
 
         spotify
-
-        remmina
-
-        kdenlive
-
-        #postman
-        docker-compose
-
-        mongodb-compass
-        mongodb-tools
 
         networkmanagerapplet
 
@@ -111,45 +90,24 @@
 
         adwaita-icon-theme
 
-        anki-bin
-
         yubikey-manager
         yubikey-manager-qt
-
-        lazygit
-
-        #openrocket
 
         zotero
         zola
 
-        obsidian
-
-        virt-manager
-
         xorg.xhost
 
         bambu-studio
-        #orca-slicer
-        lychee-slicer
-        #freecad
 
         inputs.ragenix.packages.x86_64-linux.default
         inputs.nix-matlab.packages.x86_64-linux.matlab
-        devenv
-
-        python3
-        conda
-
-        platformio
-
-        #imhex
+        inputs.zen-browser.packages.x86_64-linux.default
 
         mosh
       ]
       (lib.mkIf (!ciBuild) [
         #kicad-small
-        #relion
       ])
     ]
   );
