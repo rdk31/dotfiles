@@ -10,7 +10,7 @@
       [
         ms-python.python
         ms-python.vscode-pylance
-        ms-python.black-formatter
+        ms-python.mypy-type-checker
         redhat.vscode-yaml
         jnoortheen.nix-ide
         vscodevim.vim
@@ -19,6 +19,7 @@
         ms-toolsai.jupyter
         ms-toolsai.jupyter-renderers
         ms-vscode-remote.remote-ssh
+        charliermarsh.ruff
         github.copilot
       ]
     );
