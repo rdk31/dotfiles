@@ -21,6 +21,7 @@
         ms-vscode-remote.remote-ssh
         charliermarsh.ruff
         github.copilot
+        rust-lang.rust-analyzer
       ]
     );
   };
