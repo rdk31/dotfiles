@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  pythonEnv = with pkgs; [
+  pythonEnv = with pkgs.stable; [
     (python311.withPackages (
       p: with p; [
         numpy
