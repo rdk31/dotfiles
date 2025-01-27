@@ -22,7 +22,7 @@ let
 
         hydra-core
         omegaconf
-        rootutils
+        #rootutils
 
         jupyter
         ipykernel
