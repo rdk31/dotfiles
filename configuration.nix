@@ -144,6 +144,8 @@
     wireguard-tools
     pptp
 
+    openconnect
+
     cifs-utils
     sshfs
 
