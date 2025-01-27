@@ -10,7 +10,7 @@ let
         plotly
         scikit-learn
         torch
-        pytorch-lightning
+        lightning
         torchvision
         wandb
         tqdm
@@ -22,6 +22,7 @@ let
 
         hydra-core
         omegaconf
+        rootutils
 
         jupyter
         ipykernel
