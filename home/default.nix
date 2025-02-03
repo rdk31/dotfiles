@@ -98,7 +98,7 @@
 
         xorg.xhost
 
-        bambu-studio
+        stable.bambu-studio
 
         inputs.ragenix.packages.x86_64-linux.default
         inputs.nix-matlab.packages.x86_64-linux.matlab
