@@ -100,6 +100,7 @@
   xdg.portal.wlr.enable = true;
   xdg.portal.config.common.default = "*";
 
+  hardware.saleae-logic.enable = true;
   hardware = {
     graphics = {
       enable = true;

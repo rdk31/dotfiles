@@ -45,6 +45,7 @@ let
     cmake
 
     platformio
+    saleae-logic-2
   ];
 in
 {
