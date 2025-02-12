@@ -81,6 +81,7 @@
         vesktop
         slack
         signal-desktop
+        whatsapp-for-linux
 
         spotify
 
