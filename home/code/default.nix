@@ -30,6 +30,7 @@
         mechatroner.rainbow-csv
         aaron-bond.better-comments
         ms-toolsai.datawrangler
+        tamasfe.even-better-toml
         pkgs.vscode-extensions.ms-vscode.cpptools
       ]
     );

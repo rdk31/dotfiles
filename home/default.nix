@@ -87,6 +87,8 @@
 
         networkmanagerapplet
 
+        mongodb-compass
+
         prismlauncher
 
         adwaita-icon-theme
