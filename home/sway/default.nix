@@ -178,8 +178,9 @@ in
         resumeCommand = "${pkgs.sway}/bin/swaymsg \"output * power on\"";
       }
     ];
+    systemdTarget = "sway-session.target";
   };
-  systemd.user.services.swayidle.Service.Environment = lib.mkAfter [ "WAYLAND_DISPLAY='wayland-1'" ];
+  #systemd.user.services.swayidle.Service.Environment = lib.mkAfter [ "WAYLAND_DISPLAY='wayland-1'" ];
 
   services.gammastep = {
     enable = true;
